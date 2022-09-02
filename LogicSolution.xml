@@ -1,0 +1,67 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>LogicSolution</name>
+    </assembly>
+    <members>
+        <member name="M:LogicSolution.Controllers.CodeWarsController.#ctor(LogicSolution.Services.ICodeWarsService)">
+            <summary>
+            All the logic solution in the CodeWars platform
+            </summary>
+            <param name="logger">Logger</param>
+            <param name="codeWarsService">Repository</param>
+        </member>
+        <member name="M:LogicSolution.Controllers.CodeWarsController.BreakCamelCase(System.String)">
+            <summary>
+            The function will break up camel casing, using a space between words. Example: "camelCasing" => "camel Casing"
+            </summary>
+            <param name="camelCaseText">Camel Case Text</param>
+            <returns>Camel Case Text separated by space</returns>
+        </member>
+        <member name="M:LogicSolution.Controllers.CodeWarsController.Anagrams(System.String,System.Collections.Generic.List{System.String})">
+            <summary>
+            The function that will find all the anagrams of a word from a list. Example: anagrams('abba', ['aabb', 'abcd', 'bbaa', 'dada']) => ['aabb', 'bbaa']
+            </summary>
+            <param name="word">Main Word</param>
+            <param name="words">List of Words</param>
+            <returns>An array of all the anagrams or an empty array if there are none.</returns>
+        </member>
+        <member name="M:LogicSolution.Controllers.CodeWarsController.Rot13(System.String)">
+            <summary>
+            ROT13 is a simple letter substitution cipher that replaces a letter with the letter 13 letters after it in the alphabet.
+            </summary>
+            <param name="message">Message</param>
+            <returns>The string ciphered with Rot13</returns>
+        </member>
+        <member name="M:LogicSolution.Controllers.CodeWarsController.IsPangram(System.String)">
+            <summary>
+            A pangram is a sentence that contains every single letter of the alphabet at least once.
+            </summary>
+            <param name="text">Text</param>
+            <returns></returns>
+        </member>
+        <member name="M:LogicSolution.Controllers.CodeWarsController.AlphabetPosition(System.String)">
+            <summary>
+            This function replaces every letter with its position in the alphabet. If anything in the text isn't a letter, ignore it and don't return it. "a" = 1, "b" = 2, etc.
+            </summary>
+            <param name="text">Text</param>
+            <returns></returns>
+        </member>
+        <member name="M:LogicSolution.Controllers.CodeWarsController.FindMissingLetter(System.Char[])">
+            <summary>
+            This function will find the missing letter in an array of characters. ["a","b","c","d","f"] => "e"
+            </summary>
+            <param name="array">Array of Characters</param>
+            <returns>The missing letter in the array</returns>
+        </member>
+        <member name="M:LogicSolution.Controllers.CodeWarsController.RGBToHex(System.Int32,System.Int32,System.Int32)">
+            <summary>
+            The function will convert the RGB decimal value to hexadecimal value. Rgb(255, 255, 255) # returns FFFFFF
+            </summary>
+            <param name="r">Red</param>
+            <param name="g">Green</param>
+            <param name="b">Blue</param>
+            <returns>RGB hexadecimal value</returns>
+        </member>
+    </members>
+</doc>
