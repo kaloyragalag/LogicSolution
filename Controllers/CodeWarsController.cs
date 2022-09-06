@@ -111,5 +111,21 @@ namespace LogicSolution.Controllers
         {
             return _codeWarsService.RGBToHex(r, g, b);
         }
+
+        /// <summary>
+        /// The function will check whether the board's current state is solved. 
+        /// </summary>
+        /// <param name="board">Tic-Tac-Toe Board</param>
+        /// <returns>
+        /// -1 if the board is not yet finished AND no one has won yet (there are empty spots),
+        /// 1 if "X" won,
+        /// 2 if "O" won,
+        /// 0 if it's a cat's game (i.e. a draw).
+        /// </returns>
+        [HttpGet("tictactoechecker")]
+        public int TicTacToeChecker()
+        {
+            return _codeWarsService.TicTacToeChecker(new int[,] { { 2, 1, 2 }, { 2, 1, 1 }, { 1, 2, 0 } });
+        }
     }
 }

@@ -14,5 +14,6 @@ namespace LogicSolution.Services
         string AlphabetPosition(string text);
         char FindMissingLetter(char[] array);
         string RGBToHex(int r, int g, int b);
+        int TicTacToeChecker(int[,] board);
     }
 }

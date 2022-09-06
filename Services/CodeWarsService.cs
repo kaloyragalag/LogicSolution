@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using System.Xml;
 
 namespace LogicSolution.Services
 {
@@ -102,6 +103,39 @@ namespace LogicSolution.Services
             }
 
             return strR;
+        }
+
+        public int TicTacToeChecker(int[,] board)
+        {
+            string rowBoard = string.Empty, columnBoard = string.Empty, diagonalBoard = string.Empty, diagonalBackBoard = string.Empty;
+            int winner = -1;
+
+            for (int i = 0; i < board.GetLength(0); i++)
+            {
+                for (int j = 0; j < board.GetLength(1); j++)
+                {
+                    rowBoard += board[i, j];
+                    columnBoard += board[j, i];
+                }
+                diagonalBoard += board[i, i];
+                diagonalBackBoard += board[i, board.GetLength(0) - 1 - i];
+
+                rowBoard += " ";
+                columnBoard += " ";
+            }
+            List<string> lstBoard = new List<string>();
+            lstBoard.AddRange(rowBoard.Split(" ").ToList());
+            lstBoard.AddRange(columnBoard.Split(" ").ToList());
+            lstBoard.Add(diagonalBoard);
+            lstBoard.Add(diagonalBackBoard);
+
+            if (lstBoard.Contains("111"))
+                return 1;
+            else if (lstBoard.Contains("222"))
+                return 2;
+            else if (lstBoard.Contains("0"))
+                    return -1;
+            else return 0;
         }
     }
 }
