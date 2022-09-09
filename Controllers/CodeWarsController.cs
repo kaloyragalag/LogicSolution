@@ -125,7 +125,7 @@ namespace LogicSolution.Controllers
         [HttpGet("tictactoechecker")]
         public int TicTacToeChecker()
         {
-            return _codeWarsService.TicTacToeChecker(new int[,] { { 2, 1, 2 }, { 2, 1, 1 }, { 1, 2, 0 } });
+            return _codeWarsService.TicTacToeChecker(new int[,] { { 0, 2, 2 }, { 2, 1, 1 }, { 0, 0, 1 } });
         }
     }
 }

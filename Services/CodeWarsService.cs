@@ -108,7 +108,8 @@ namespace LogicSolution.Services
         public int TicTacToeChecker(int[,] board)
         {
             string rowBoard = string.Empty, columnBoard = string.Empty, diagonalBoard = string.Empty, diagonalBackBoard = string.Empty;
-            int winner = -1;
+            bool hasZero = false;
+            List<string> lstBoard = new List<string>();
 
             for (int i = 0; i < board.GetLength(0); i++)
             {
@@ -116,16 +117,16 @@ namespace LogicSolution.Services
                 {
                     rowBoard += board[i, j];
                     columnBoard += board[j, i];
+                    if(!hasZero && board[i, j] == 0)
+                        hasZero = true;
                 }
                 diagonalBoard += board[i, i];
                 diagonalBackBoard += board[i, board.GetLength(0) - 1 - i];
 
-                rowBoard += " ";
-                columnBoard += " ";
+                lstBoard.Add(rowBoard);
+                lstBoard.Add(columnBoard);
+                columnBoard = rowBoard = String.Empty;
             }
-            List<string> lstBoard = new List<string>();
-            lstBoard.AddRange(rowBoard.Split(" ").ToList());
-            lstBoard.AddRange(columnBoard.Split(" ").ToList());
             lstBoard.Add(diagonalBoard);
             lstBoard.Add(diagonalBackBoard);
 
@@ -133,7 +134,7 @@ namespace LogicSolution.Services
                 return 1;
             else if (lstBoard.Contains("222"))
                 return 2;
-            else if (lstBoard.Contains("0"))
+            else if (hasZero)
                     return -1;
             else return 0;
         }
