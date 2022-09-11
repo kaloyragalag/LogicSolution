@@ -9,6 +9,8 @@ namespace LogicSolution.Controllers
     [Route("[controller]")]
     public class AuthorizationController : ControllerBase
     {
+        //https://www.youtube.com/watch?v=bRtCifC6JsQ&ab_channel=KevinGutierrez
+        //https://www.c-sharpcorner.com/article/jwt-token-creation-authentication-and-authorization-in-asp-net-core-6-0-with-po/
         private IAuthorizeService authorizeService;
 
         public AuthorizationController(IAuthorizeService authorizeService)
@@ -16,19 +18,24 @@ namespace LogicSolution.Controllers
             this.authorizeService = authorizeService;
         }
 
+        /// <summary>
+        /// Authenticate user
+        /// </summary>
+        /// <param name="userLogin">User details</param>
+        /// <returns>Token</returns>
         [AllowAnonymous]
-        [HttpPost]
-        public ActionResult Login([FromBody] UserModel userLogin)
+        [HttpPost("authenticate")]
+        public ActionResult Authenticate([FromBody] UserModel userLogin)
         {
             UserModel userModel = authorizeService.Authenticate(userLogin);
             if (userModel != null)
             {
                 var token = authorizeService.GenerateToken(userModel);
-                return Ok(token);
+                return Ok(new CommonResponse() { IsError = false, Data = token, UserMessage = "Successful authentication."});
             }
             else
             {
-                return NotFound();
+                return NotFound(new CommonResponse() { IsError = true, UserMessage = "User does not exist or incorrect password."});
             }
         }
     }

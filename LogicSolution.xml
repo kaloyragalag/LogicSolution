@@ -4,6 +4,13 @@
         <name>LogicSolution</name>
     </assembly>
     <members>
+        <member name="M:LogicSolution.Controllers.AuthorizationController.Authenticate(LogicSolution.Model.UserModel)">
+            <summary>
+            Authenticate user
+            </summary>
+            <param name="userLogin">User details</param>
+            <returns>Token</returns>
+        </member>
         <member name="M:LogicSolution.Controllers.CodeWarsController.#ctor(LogicSolution.Services.ICodeWarsService)">
             <summary>
             All the logic solution in the CodeWars platform
