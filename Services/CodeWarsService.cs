@@ -136,5 +136,10 @@ namespace LogicSolution.Services
                     return -1;
             else return 0;
         }
+
+        public string PigLatin(string word)
+        {
+            return string.Join(" ", word.Split(" ").Select(x => x.Any(y => Char.IsPunctuation(y)) ? x : string.Format("{0}{1}ay", x.Substring(1), x[0])));
+        }
     }
 }

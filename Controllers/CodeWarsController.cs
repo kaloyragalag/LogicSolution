@@ -127,5 +127,16 @@ namespace LogicSolution.Controllers
         {
             return _codeWarsService.TicTacToeChecker(board.To2DArray());
         }
+
+        /// <summary>
+        /// Move the first letter of each word to the end of it, then add "ay" to the end of the word.
+        /// </summary>
+        /// <param name="word">Word</param>
+        /// <returns>Pig Latin Word</returns>
+        [HttpGet("piglatin")]
+        public string PigLatin([FromQuery] string word)
+        {
+            return _codeWarsService.PigLatin(word);
+        }
     }
 }
