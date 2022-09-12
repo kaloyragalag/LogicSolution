@@ -141,5 +141,29 @@ namespace LogicSolution.Services
         {
             return string.Join(" ", word.Split(" ").Select(x => x.Any(y => Char.IsPunctuation(y)) ? x : string.Format("{0}{1}ay", x.Substring(1), x[0])));
         }
+
+        public bool SudokuValidator(int[][] board)
+        {
+            string rowBoard = string.Empty, columnBoard = string.Empty;
+            bool hasZero = false;
+            List<string> lstBoard = new List<string>();
+
+            for (int i = 0; i < board.Length; i++)
+            {
+                for (int j = 0; j < board[i].Length; j++)
+                {
+                    rowBoard += board[i][j];
+                    columnBoard += board[j][i];
+                    if (!hasZero && board[i][j] == 0)
+                        hasZero = true;
+                }
+
+                lstBoard.Add(rowBoard);
+                lstBoard.Add(columnBoard);
+                columnBoard = rowBoard = String.Empty;
+            }
+
+            return true;
+        }
     }
 }

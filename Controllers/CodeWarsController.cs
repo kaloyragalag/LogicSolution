@@ -138,5 +138,27 @@ namespace LogicSolution.Controllers
         {
             return _codeWarsService.PigLatin(word);
         }
+
+        /// <summary>
+        /// Accepts a 2D array representing a Sudoku board, and returns true if it is a valid solution, or false otherwise. The cells of the sudoku board may also contain 0's, which will represent empty cells. Boards containing one or more zeroes are considered to be invalid solutions.
+        /// </summary>
+        /// <param name="board">2D board</param>
+        /// <returns>True/False</returns>
+        [HttpPost("sudokuvalidator")]
+        public bool SudokuValidator(int[][] board)
+        {
+            return _codeWarsService.SudokuValidator(new int[][]
+        {
+          new int[] {5, 3, 4, 6, 7, 8, 9, 1, 2},
+          new int[] {6, 7, 2, 1, 9, 5, 3, 4, 8},
+          new int[] {1, 9, 8, 3, 4, 2, 5, 6, 7},
+          new int[] {8, 5, 9, 7, 6, 1, 4, 2, 3},
+          new int[] {4, 2, 6, 8, 5, 3, 7, 9, 1},
+          new int[] {7, 1, 3, 9, 2, 4, 8, 5, 6},
+          new int[] {9, 6, 1, 5, 3, 7, 2, 8, 4},
+          new int[] {2, 8, 7, 4, 1, 9, 6, 3, 5},
+          new int[] {3, 4, 5, 2, 8, 6, 1, 7, 9},
+        });
+        }
     }
 }
