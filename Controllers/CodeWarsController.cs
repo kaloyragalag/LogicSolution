@@ -122,10 +122,10 @@ namespace LogicSolution.Controllers
         /// 2 if "O" won,
         /// 0 if it's a cat's game (i.e. a draw).
         /// </returns>
-        [HttpGet("tictactoechecker")]
-        public int TicTacToeChecker()
+        [HttpPost("tictactoechecker")]
+        public int TicTacToeChecker([FromBody] List<int[]> board)
         {
-            return _codeWarsService.TicTacToeChecker(new int[,] { { 0, 2, 2 }, { 2, 1, 1 }, { 0, 0, 1 } });
+            return _codeWarsService.TicTacToeChecker(board.To2DArray());
         }
     }
 }
