@@ -2,7 +2,6 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 
 namespace LogicSolution.Services
 {
@@ -102,6 +101,40 @@ namespace LogicSolution.Services
             }
 
             return strR;
+        }
+
+        public int TicTacToeChecker(int[,] board)
+        {
+            string rowBoard = string.Empty, columnBoard = string.Empty, diagonalBoard = string.Empty, diagonalBackBoard = string.Empty;
+            bool hasZero = false;
+            List<string> lstBoard = new List<string>();
+
+            for (int i = 0; i < board.GetLength(0); i++)
+            {
+                for (int j = 0; j < board.GetLength(1); j++)
+                {
+                    rowBoard += board[i, j];
+                    columnBoard += board[j, i];
+                    if(!hasZero && board[i, j] == 0)
+                        hasZero = true;
+                }
+                diagonalBoard += board[i, i];
+                diagonalBackBoard += board[i, board.GetLength(0) - 1 - i];
+
+                lstBoard.Add(rowBoard);
+                lstBoard.Add(columnBoard);
+                columnBoard = rowBoard = String.Empty;
+            }
+            lstBoard.Add(diagonalBoard);
+            lstBoard.Add(diagonalBackBoard);
+
+            if (lstBoard.Contains("111"))
+                return 1;
+            else if (lstBoard.Contains("222"))
+                return 2;
+            else if (hasZero)
+                    return -1;
+            else return 0;
         }
     }
 }
