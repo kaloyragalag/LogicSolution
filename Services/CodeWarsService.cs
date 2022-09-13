@@ -144,7 +144,8 @@ namespace LogicSolution.Services
 
         public bool SudokuValidator(int[][] board)
         {
-            string rowBoard = string.Empty, columnBoard = string.Empty;
+            int MINIBOARD = 3;
+            string rowBoard = string.Empty, columnBoard = string.Empty, miniBoard1 = String.Empty, miniBoard2 = String.Empty, miniBoard3 = String.Empty;
             bool hasZero = false;
             List<string> lstBoard = new List<string>();
 
@@ -157,13 +158,31 @@ namespace LogicSolution.Services
                     if (!hasZero && board[i][j] == 0)
                         hasZero = true;
                 }
+                if ((i + 1) % 3 == 1)
+                {
+                    for (int k = i; (k - i) < MINIBOARD; k++)
+                    {
+                        for (int l = 0; l < MINIBOARD; l++)
+                        {
+                            miniBoard1 += board[k][l];
+                            miniBoard2 += board[k][l + 3];
+                            miniBoard3 += board[k][l + 6];
+                        }
+                    }
+                    lstBoard.Add(String.Join("", miniBoard1.OrderBy(x => x)));
+                    lstBoard.Add(String.Join("", miniBoard2.OrderBy(x => x)));
+                    lstBoard.Add(String.Join("", miniBoard3.OrderBy(x => x)));
+                    miniBoard1 = miniBoard2 = miniBoard3 = String.Empty;
+                }
 
-                lstBoard.Add(rowBoard);
-                lstBoard.Add(columnBoard);
+                lstBoard.Add(String.Join("", rowBoard.OrderBy(x => x)));
+                lstBoard.Add(String.Join("", columnBoard.OrderBy(x => x)));
                 columnBoard = rowBoard = String.Empty;
             }
 
-            return true;
+            bool isValid = lstBoard.All(x => x == "123456789");
+
+            return hasZero ? false : isValid;
         }
     }
 }
