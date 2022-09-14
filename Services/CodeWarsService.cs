@@ -141,5 +141,48 @@ namespace LogicSolution.Services
         {
             return string.Join(" ", word.Split(" ").Select(x => x.Any(y => Char.IsPunctuation(y)) ? x : string.Format("{0}{1}ay", x.Substring(1), x[0])));
         }
+
+        public bool SudokuValidator(int[][] board)
+        {
+            int MINIBOARD = 3;
+            string rowBoard = string.Empty, columnBoard = string.Empty, miniBoard1 = String.Empty, miniBoard2 = String.Empty, miniBoard3 = String.Empty;
+            bool hasZero = false;
+            List<string> lstBoard = new List<string>();
+
+            for (int i = 0; i < board.Length; i++)
+            {
+                for (int j = 0; j < board[i].Length; j++)
+                {
+                    rowBoard += board[i][j];
+                    columnBoard += board[j][i];
+                    if (!hasZero && board[i][j] == 0)
+                        hasZero = true;
+                }
+                if ((i + 1) % 3 == 1)
+                {
+                    for (int k = i; (k - i) < MINIBOARD; k++)
+                    {
+                        for (int l = 0; l < MINIBOARD; l++)
+                        {
+                            miniBoard1 += board[k][l];
+                            miniBoard2 += board[k][l + 3];
+                            miniBoard3 += board[k][l + 6];
+                        }
+                    }
+                    lstBoard.Add(String.Join("", miniBoard1.OrderBy(x => x)));
+                    lstBoard.Add(String.Join("", miniBoard2.OrderBy(x => x)));
+                    lstBoard.Add(String.Join("", miniBoard3.OrderBy(x => x)));
+                    miniBoard1 = miniBoard2 = miniBoard3 = String.Empty;
+                }
+
+                lstBoard.Add(String.Join("", rowBoard.OrderBy(x => x)));
+                lstBoard.Add(String.Join("", columnBoard.OrderBy(x => x)));
+                columnBoard = rowBoard = String.Empty;
+            }
+
+            bool isValid = lstBoard.All(x => x == "123456789");
+
+            return hasZero ? false : isValid;
+        }
     }
 }

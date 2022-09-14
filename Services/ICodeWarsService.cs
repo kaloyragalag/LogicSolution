@@ -16,5 +16,6 @@ namespace LogicSolution.Services
         string RGBToHex(int r, int g, int b);
         int TicTacToeChecker(int[,] board);
         string PigLatin(string word);
+        bool SudokuValidator(int[][] board);
     }
 }
