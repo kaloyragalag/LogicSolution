@@ -82,5 +82,19 @@
             0 if it's a cat's game (i.e. a draw).
             </returns>
         </member>
+        <member name="M:LogicSolution.Controllers.CodeWarsController.PigLatin(System.String)">
+            <summary>
+            Move the first letter of each word to the end of it, then add "ay" to the end of the word.
+            </summary>
+            <param name="word">Word</param>
+            <returns>Pig Latin Word</returns>
+        </member>
+        <member name="M:LogicSolution.Controllers.CodeWarsController.SudokuValidator(System.Int32[][])">
+            <summary>
+            Accepts a 2D array representing a Sudoku board, and returns whether it is valid or not. Boards containing one or more zeroes are considered to be invalid solution.
+            </summary>
+            <param name="board">2D board</param>
+            <returns>True/False</returns>
+        </member>
     </members>
 </doc>
