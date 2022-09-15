@@ -1,4 +1,5 @@
-﻿using LogicSolution.Services;
+﻿using LogicSolution.Model;
+using LogicSolution.Services;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
