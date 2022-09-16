@@ -11,6 +11,7 @@ namespace LogicSolution.Services
         {
             return String.Join("", camelCaseText.Select(x => Char.IsUpper(x) ? string.Format(" {0}", x) : x.ToString())).Trim();
         }
+
         public List<string> Anagrams(string word, List<string> words)
         {
             return words.Where(x => String.Join("", x.OrderBy(y => y)) == String.Join("", word.OrderBy(x => x))).ToList();
