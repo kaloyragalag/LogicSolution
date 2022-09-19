@@ -7,6 +7,15 @@ namespace LogicSolution.Services
 {
     public class CodeWarsService : ICodeWarsService
     {
+        public string TwoToOneLongest(string s1, string s2)
+        {
+            string strLongest = string.Empty;
+
+            strLongest = String.Join("", (s1 + s2).Distinct().OrderBy(x => x));
+
+            return strLongest;
+        }
+
         public string BreakCamelCase(string camelCaseText)
         {
             return String.Join("", camelCaseText.Select(x => Char.IsUpper(x) ? string.Format(" {0}", x) : x.ToString())).Trim();

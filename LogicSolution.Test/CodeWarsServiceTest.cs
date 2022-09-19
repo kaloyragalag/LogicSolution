@@ -18,6 +18,14 @@ namespace LogicSolution.Test
             _codeWarsService = new CodeWarsService();
         }
 
+        [Test]
+        public void TwoToOneLongest_RandomTexts_ReturnCorrect()
+        {
+            Assert.AreEqual("aehrsty", _codeWarsService.TwoToOneLongest("aretheyhere", "yestheyarehere"));
+            Assert.AreEqual("abcdefghilnoprstu", _codeWarsService.TwoToOneLongest("loopingisfunbutdangerous", "lessdangerousthancoding"));
+            Assert.AreEqual("acefghilmnoprstuy", _codeWarsService.TwoToOneLongest("inmanylanguages", "theresapairoffunctions"));
+        }
+
         #region BreakCamelCase
         [Test]
         public void BreakCamelCase_RandomText_ReturnCorrectFormat()

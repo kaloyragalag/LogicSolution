@@ -18,6 +18,14 @@
             <param name="logger">Logger</param>
             <param name="codeWarsService">Repository</param>
         </member>
+        <member name="M:LogicSolution.Controllers.CodeWarsController.TwoToOneLongest(System.String,System.String)">
+            <summary>
+            Take 2 strings s1 and s2 including only letters from a to z. Return a new sorted string, containing distinct letters from s1 or s2.
+            </summary>
+            <param name="s1">String 1</param>
+            <param name="s2">String 2</param>
+            <returns>Sorted distinct string</returns>
+        </member>
         <member name="M:LogicSolution.Controllers.CodeWarsController.BreakCamelCase(System.String)">
             <summary>
             The function will break up camel casing, using a space between words. Example: "camelCasing" => "camel Casing"

@@ -27,6 +27,18 @@ namespace LogicSolution.Controllers
         }
 
         /// <summary>
+        /// Take 2 strings s1 and s2 including only letters from a to z. Return a new sorted string, containing distinct letters from s1 or s2.
+        /// </summary>
+        /// <param name="s1">String 1</param>
+        /// <param name="s2">String 2</param>
+        /// <returns>Sorted distinct string</returns>
+        [HttpGet("twoToOnelongest")]
+        public string TwoToOneLongest([FromQuery]string s1, [FromQuery]string s2)
+        {
+            return _codeWarsService.TwoToOneLongest(s1, s2);
+        }
+
+        /// <summary>
         /// The function will break up camel casing, using a space between words. Example: "camelCasing" => "camel Casing"
         /// </summary>
         /// <param name="camelCaseText">Camel Case Text</param>
