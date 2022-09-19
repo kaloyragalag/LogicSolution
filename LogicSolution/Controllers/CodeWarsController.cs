@@ -27,6 +27,17 @@ namespace LogicSolution.Controllers
         }
 
         /// <summary>
+        /// Return the number (count) of vowels in the given string.The input string will only consist of lower case letters and/or spaces.
+        /// </summary>
+        /// <param name="str">Text</param>
+        /// <returns>Vowel count</returns>
+        [HttpGet("getvowelcount")]
+        public int GetVowelCount([FromQuery]string str)
+        {
+            return _codeWarsService.GetVowelCount(str);
+        }
+
+        /// <summary>
         /// To be a senior, a member must be at least 55 years old and have a handicap greater than 7. Handicaps range from -2 to +26.
         /// </summary>
         /// <param name="data">List of pairs that consists of an integer for the person's age and an integer for the person's handicap</param>

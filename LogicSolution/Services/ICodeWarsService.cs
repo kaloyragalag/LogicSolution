@@ -7,6 +7,7 @@ namespace LogicSolution.Services
 {
     public interface ICodeWarsService
     {
+        int GetVowelCount(string str);
         IEnumerable<string> OpenOrSenior(int[][] data);
         string TwoToOneLongest(string s1, string s2);
         string BreakCamelCase(string camelCaseText);

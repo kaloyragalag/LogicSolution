@@ -7,6 +7,12 @@ namespace LogicSolution.Services
 {
     public class CodeWarsService : ICodeWarsService
     {
+        public int GetVowelCount(string str)
+        {
+            char[] vowels = new char[] { 'a', 'e', 'i', 'o', 'u' };
+            return str.Count(x => vowels.Any(y => y == x));
+        }
+
         public IEnumerable<string> OpenOrSenior(int[][] data)
         {
             List<string> lstOpenOrSenior = new List<string>();

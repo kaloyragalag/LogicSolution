@@ -18,6 +18,13 @@
             <param name="logger">Logger</param>
             <param name="codeWarsService">Repository</param>
         </member>
+        <member name="M:LogicSolution.Controllers.CodeWarsController.GetVowelCount(System.String)">
+            <summary>
+            Return the number (count) of vowels in the given string.The input string will only consist of lower case letters and/or spaces.
+            </summary>
+            <param name="str">Text</param>
+            <returns>Vowel count</returns>
+        </member>
         <member name="M:LogicSolution.Controllers.CodeWarsController.OpenOrSenior(System.Int32[][])">
             <summary>
             To be a senior, a member must be at least 55 years old and have a handicap greater than 7. Handicaps range from -2 to +26.
