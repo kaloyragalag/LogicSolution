@@ -6,6 +6,50 @@ namespace LogicSolution.Services
 {
     public static class ExtensionMethods
     {
+        #region MorseDictionary
+        private static Dictionary<string, string> morseList = new Dictionary<string, string>() {
+            {"...---...", "SOS"},
+            {".-", "A"},
+            {"-...", "B"},
+            {"-.-.", "C"},
+            {"-..", "D"},
+            {".", "E"},
+            {"..-.", "F"},
+            {"--.", "G"},
+            {"....", "H"},
+            {"..", "I"},
+            {".---", "J"},
+            {"-.-", "K"},
+            {".-..", "L"},
+            {"--", "M"},
+            {"-.", "N"},
+            {"---", "O"},
+            {".--.", "P"},
+            {"--.-", "Q"},
+            {".-.", "R"},
+            {"...", "S"},
+            {"-", "T"},
+            {"..-", "U"},
+            {"...-", "V"},
+            {".--", "W"},
+            {"-..-", "X"},
+            {"-.--", "Y"},
+            {"--..", "Z"},
+            {".----", "1"},
+            {"..---", "2"},
+            {"...--", "3"},
+            {"....-", "4"},
+            {".....", "5"},
+            {"-....", "6"},
+            {"--...", "7"},
+            {"---..", "8"},
+            {"----.", "9"},
+            {"-----", "0"},
+            {".-.-.-", "."},
+            {"-.-.--", "!" }
+        }; 
+        #endregion
+
         public static T[,] To2DArray<T>(this IList<T[]> source)
         {
             if (source == null)
@@ -26,6 +70,13 @@ namespace LogicSolution.Services
             }
 
             return result;
+        }
+
+        public static string GetMorse(this string morse)
+        {
+            string morseValue;
+            morseList.TryGetValue(morse, out morseValue);
+            return morseValue;
         }
     }
 }

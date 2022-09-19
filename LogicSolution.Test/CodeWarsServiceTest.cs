@@ -12,11 +12,98 @@ namespace LogicSolution.Test
     public class CodeWarsServiceTest
     {
         private ICodeWarsService _codeWarsService;
+
         [SetUp]
         public void Setup()
         {
             _codeWarsService = new CodeWarsService();
         }
+
+        #region DecodeMorseCode
+        [Test]
+        public void DecodeMorseCode_RandomMorse_ReturnCorrect()
+        {
+            try
+            {
+                string input = ".... . -.--   .--- ..- -.. .";
+                string expected = "HEY JUDE";
+
+                string actual = _codeWarsService.DecodeMorseCode(input);
+
+                Assert.AreEqual(expected, actual);
+            }
+            catch (Exception ex)
+            {
+                Assert.Fail("There seems to be an error somewhere in your code. Exception message reads as follows: " + ex.Message);
+            }
+        }
+
+        [Test]
+        public void DecodeMorseCode_SOSMorse_ReturnCorrect()
+        {
+            try
+            {
+                string input = "...---...";
+                string expected = "SOS";
+
+                string actual = _codeWarsService.DecodeMorseCode(input);
+
+                Assert.AreEqual(expected, actual);
+            }
+            catch (Exception ex)
+            {
+                Assert.Fail("There seems to be an error somewhere in your code. Exception message reads as follows: " + ex.Message);
+            }
+        }
+        #endregion
+
+        #region FindOddInteger
+        [Test]
+        public void FindOddInteger_RandomArray_ReturnCorrect()
+        {
+            Assert.AreEqual(7, _codeWarsService.FindOddInteger(new[] { 7 }));
+            Assert.AreEqual(0, _codeWarsService.FindOddInteger(new[] { 0 }));
+            Assert.AreEqual(2, _codeWarsService.FindOddInteger(new[] { 1, 1, 2 }));
+            Assert.AreEqual(0, _codeWarsService.FindOddInteger(new[] { 0, 1, 0, 1, 0 }));
+            Assert.AreEqual(4, _codeWarsService.FindOddInteger(new[] { 1, 2, 2, 3, 3, 3, 4, 3, 3, 3, 2, 2, 1 }));
+            Assert.AreEqual(5, _codeWarsService.FindOddInteger(new[] { 20, 1, -1, 2, -2, 3, 3, 5, 5, 1, 2, 4, 20, 4, -1, -2, 5 }));
+        } 
+        #endregion
+
+        #region GetVowelCount
+        [Test]
+        public void GetVowelCount_RandomText_ReturnCorrect()
+        {
+            Assert.AreEqual(5, _codeWarsService.GetVowelCount("abracadabra"), "Nope!");
+            Assert.AreEqual(5, _codeWarsService.GetVowelCount("abcdefghijklmnopqrstuvwxyz"), "Nope!");
+        }
+
+        [Test]
+        public void GetVowelCount_EmptyText_ReturnCorrect()
+        {
+            Assert.AreEqual(0, _codeWarsService.GetVowelCount(""), "Nope!");
+        } 
+        #endregion
+
+        #region OpenOrSenior
+        [Test]
+        public void OpenOrSenior_RandomArray_ReturnCorrect()
+        {
+            Assert.AreEqual(new[] { "Open", "Senior", "Open", "Senior" }, _codeWarsService.OpenOrSenior(new[] { new[] { 45, 12 }, new[] { 55, 21 }, new[] { 19, 2 }, new[] { 104, 20 } }));
+            Assert.AreEqual(new[] { "Open", "Open", "Open", "Open" }, _codeWarsService.OpenOrSenior(new[] { new[] { 3, 12 }, new[] { 55, 1 }, new[] { 91, -2 }, new[] { 54, 23 } }));
+            Assert.AreEqual(new[] { "Senior", "Open", "Open", "Open" }, _codeWarsService.OpenOrSenior(new[] { new[] { 59, 12 }, new[] { 45, 21 }, new[] { -12, -2 }, new[] { 12, 12 } }));
+        } 
+        #endregion
+
+        #region TwoToOneLongest
+        [Test]
+        public void TwoToOneLongest_RandomTexts_ReturnCorrect()
+        {
+            Assert.AreEqual("aehrsty", _codeWarsService.TwoToOneLongest("aretheyhere", "yestheyarehere"));
+            Assert.AreEqual("abcdefghilnoprstu", _codeWarsService.TwoToOneLongest("loopingisfunbutdangerous", "lessdangerousthancoding"));
+            Assert.AreEqual("acefghilmnoprstuy", _codeWarsService.TwoToOneLongest("inmanylanguages", "theresapairoffunctions"));
+        } 
+        #endregion
 
         #region BreakCamelCase
         [Test]

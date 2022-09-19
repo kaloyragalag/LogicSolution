@@ -7,6 +7,56 @@ namespace LogicSolution.Services
 {
     public class CodeWarsService : ICodeWarsService
     {
+        public string DecodeMorseCode(string morseCode)
+        {
+            return String.Join(" "
+                    , morseCode.Split("   ")
+                    .Select(word => String.Join("", word.Split(" ").Select(letter => letter.GetMorse())))
+                ).Trim();
+        }
+
+        public int FindOddInteger(int[] seq)
+        {
+            return seq.Where(number => seq.Count(x => x == number) % 2 != 0).FirstOrDefault();
+        }
+
+        public int GetVowelCount(string str)
+        {
+            char[] vowels = new char[] { 'a', 'e', 'i', 'o', 'u' };
+            return str.Count(x => vowels.Any(y => y == x));
+        }
+
+        public IEnumerable<string> OpenOrSenior(int[][] data)
+        {
+            List<string> lstOpenOrSenior = new List<string>();
+
+            foreach (int[] arrData in data)
+            {
+                if (arrData.Length >= 2)
+                {
+                    if (arrData[0] >= 55 && arrData[1] >= 7)
+                    {
+                        lstOpenOrSenior.Add("Senior");
+                    }
+                    else
+                    {
+                        lstOpenOrSenior.Add("Open");
+                    }
+                }
+            }
+
+            return lstOpenOrSenior;
+        }
+
+        public string TwoToOneLongest(string s1, string s2)
+        {
+            string strLongest = string.Empty;
+
+            strLongest = String.Join("", (s1 + s2).Distinct().OrderBy(x => x));
+
+            return strLongest;
+        }
+
         public string BreakCamelCase(string camelCaseText)
         {
             return String.Join("", camelCaseText.Select(x => Char.IsUpper(x) ? string.Format(" {0}", x) : x.ToString())).Trim();

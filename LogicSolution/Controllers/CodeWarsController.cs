@@ -27,6 +27,62 @@ namespace LogicSolution.Controllers
         }
 
         /// <summary>
+        /// A function that would take the morse code as input and return a decoded human-readable string
+        /// </summary>
+        /// <param name="morseCode">Morse Code</param>
+        /// <returns>Decoded Human-readable string</returns>
+        [HttpGet("decodeMorseCode")]
+        public string DecodeMorseCode(string morseCode)
+        {
+            return _codeWarsService.DecodeMorseCode(morseCode);
+        }
+
+        /// <summary>
+        /// Given an array of integers, find the one that appears an odd number of times. There will always be only one integer that appears an odd number of times.
+        /// </summary>
+        /// <param name="seq">Array of Integers</param>
+        /// <returns>the one that appears an odd number of times</returns>
+        [HttpGet("findOddInteger")]
+        public int FindOddInteger([FromQuery]int[] seq)
+        {
+            return _codeWarsService.FindOddInteger(seq);
+        }
+
+        /// <summary>
+        /// Return the number (count) of vowels in the given string.The input string will only consist of lower case letters and/or spaces.
+        /// </summary>
+        /// <param name="str">Text</param>
+        /// <returns>Vowel count</returns>
+        [HttpGet("getvowelcount")]
+        public int GetVowelCount([FromQuery]string str)
+        {
+            return _codeWarsService.GetVowelCount(str);
+        }
+
+        /// <summary>
+        /// To be a senior, a member must be at least 55 years old and have a handicap greater than 7. Handicaps range from -2 to +26.
+        /// </summary>
+        /// <param name="data">List of pairs that consists of an integer for the person's age and an integer for the person's handicap</param>
+        /// <returns>Whether the respective member is to be placed in the senior or open category</returns>
+        [HttpPost("openOrSenior")]
+        public IEnumerable<string> OpenOrSenior([FromBody]int[][] data)
+        {
+            return _codeWarsService.OpenOrSenior(data);
+        }
+
+        /// <summary>
+        /// Take 2 strings s1 and s2 including only letters from a to z. Return a new sorted string, containing distinct letters from s1 or s2.
+        /// </summary>
+        /// <param name="s1">String 1</param>
+        /// <param name="s2">String 2</param>
+        /// <returns>Sorted distinct string</returns>
+        [HttpGet("twoToOnelongest")]
+        public string TwoToOneLongest([FromQuery]string s1, [FromQuery]string s2)
+        {
+            return _codeWarsService.TwoToOneLongest(s1, s2);
+        }
+
+        /// <summary>
         /// The function will break up camel casing, using a space between words. Example: "camelCasing" => "camel Casing"
         /// </summary>
         /// <param name="camelCaseText">Camel Case Text</param>

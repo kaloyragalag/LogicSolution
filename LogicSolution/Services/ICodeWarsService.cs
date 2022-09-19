@@ -7,6 +7,11 @@ namespace LogicSolution.Services
 {
     public interface ICodeWarsService
     {
+        string DecodeMorseCode(string morseCode);
+        int FindOddInteger(int[] seq);
+        int GetVowelCount(string str);
+        IEnumerable<string> OpenOrSenior(int[][] data);
+        string TwoToOneLongest(string s1, string s2);
         string BreakCamelCase(string camelCaseText);
         List<string> Anagrams(string word, List<string> words);
         string Rot13(string message);
