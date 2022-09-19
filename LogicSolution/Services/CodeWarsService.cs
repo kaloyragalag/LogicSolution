@@ -7,6 +7,11 @@ namespace LogicSolution.Services
 {
     public class CodeWarsService : ICodeWarsService
     {
+        public int FindOddInteger(int[] seq)
+        {
+            return seq.Where(number => seq.Count(x => x == number) % 2 != 0).FirstOrDefault();
+        }
+
         public int GetVowelCount(string str)
         {
             char[] vowels = new char[] { 'a', 'e', 'i', 'o', 'u' };
@@ -34,6 +39,7 @@ namespace LogicSolution.Services
 
             return lstOpenOrSenior;
         }
+
         public string TwoToOneLongest(string s1, string s2)
         {
             string strLongest = string.Empty;

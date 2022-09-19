@@ -27,6 +27,17 @@ namespace LogicSolution.Controllers
         }
 
         /// <summary>
+        /// Given an array of integers, find the one that appears an odd number of times. There will always be only one integer that appears an odd number of times.
+        /// </summary>
+        /// <param name="seq">Array of Integers</param>
+        /// <returns>the one that appears an odd number of times</returns>
+        [HttpGet("findOddInteger")]
+        public int FindOddInteger([FromQuery]int[] seq)
+        {
+            return _codeWarsService.FindOddInteger(seq);
+        }
+
+        /// <summary>
         /// Return the number (count) of vowels in the given string.The input string will only consist of lower case letters and/or spaces.
         /// </summary>
         /// <param name="str">Text</param>

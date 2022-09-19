@@ -12,11 +12,25 @@ namespace LogicSolution.Test
     public class CodeWarsServiceTest
     {
         private ICodeWarsService _codeWarsService;
+
         [SetUp]
         public void Setup()
         {
             _codeWarsService = new CodeWarsService();
         }
+
+        #region FindOddInteger
+        [Test]
+        public void FindOddInteger_RandomArray_ReturnCorrect()
+        {
+            Assert.AreEqual(7, _codeWarsService.FindOddInteger(new[] { 7 }));
+            Assert.AreEqual(0, _codeWarsService.FindOddInteger(new[] { 0 }));
+            Assert.AreEqual(2, _codeWarsService.FindOddInteger(new[] { 1, 1, 2 }));
+            Assert.AreEqual(0, _codeWarsService.FindOddInteger(new[] { 0, 1, 0, 1, 0 }));
+            Assert.AreEqual(4, _codeWarsService.FindOddInteger(new[] { 1, 2, 2, 3, 3, 3, 4, 3, 3, 3, 2, 2, 1 }));
+            Assert.AreEqual(5, _codeWarsService.FindOddInteger(new[] { 20, 1, -1, 2, -2, 3, 3, 5, 5, 1, 2, 4, 20, 4, -1, -2, 5 }));
+        } 
+        #endregion
 
         #region GetVowelCount
         [Test]
