@@ -27,6 +27,17 @@ namespace LogicSolution.Controllers
         }
 
         /// <summary>
+        /// To be a senior, a member must be at least 55 years old and have a handicap greater than 7. Handicaps range from -2 to +26.
+        /// </summary>
+        /// <param name="data">List of pairs that consists of an integer for the person's age and an integer for the person's handicap</param>
+        /// <returns>Whether the respective member is to be placed in the senior or open category</returns>
+        [HttpPost("openOrSenior")]
+        public IEnumerable<string> OpenOrSenior([FromBody]int[][] data)
+        {
+            return _codeWarsService.OpenOrSenior(data);
+        }
+
+        /// <summary>
         /// Take 2 strings s1 and s2 including only letters from a to z. Return a new sorted string, containing distinct letters from s1 or s2.
         /// </summary>
         /// <param name="s1">String 1</param>

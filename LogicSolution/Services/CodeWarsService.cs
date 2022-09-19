@@ -7,6 +7,27 @@ namespace LogicSolution.Services
 {
     public class CodeWarsService : ICodeWarsService
     {
+        public IEnumerable<string> OpenOrSenior(int[][] data)
+        {
+            List<string> lstOpenOrSenior = new List<string>();
+
+            foreach (int[] arrData in data)
+            {
+                if (arrData.Length >= 2)
+                {
+                    if (arrData[0] >= 55 && arrData[1] >= 7)
+                    {
+                        lstOpenOrSenior.Add("Senior");
+                    }
+                    else
+                    {
+                        lstOpenOrSenior.Add("Open");
+                    }
+                }
+            }
+
+            return lstOpenOrSenior;
+        }
         public string TwoToOneLongest(string s1, string s2)
         {
             string strLongest = string.Empty;

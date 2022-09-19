@@ -19,6 +19,14 @@ namespace LogicSolution.Test
         }
 
         [Test]
+        public void OpenOrSenior_RandomArray_ReturnCorrect()
+        {
+            Assert.AreEqual(new[] { "Open", "Senior", "Open", "Senior" }, _codeWarsService.OpenOrSenior(new[] { new[] { 45, 12 }, new[] { 55, 21 }, new[] { 19, 2 }, new[] { 104, 20 } }));
+            Assert.AreEqual(new[] { "Open", "Open", "Open", "Open" }, _codeWarsService.OpenOrSenior(new[] { new[] { 3, 12 }, new[] { 55, 1 }, new[] { 91, -2 }, new[] { 54, 23 } }));
+            Assert.AreEqual(new[] { "Senior", "Open", "Open", "Open" }, _codeWarsService.OpenOrSenior(new[] { new[] { 59, 12 }, new[] { 45, 21 }, new[] { -12, -2 }, new[] { 12, 12 } }));
+        }
+
+        [Test]
         public void TwoToOneLongest_RandomTexts_ReturnCorrect()
         {
             Assert.AreEqual("aehrsty", _codeWarsService.TwoToOneLongest("aretheyhere", "yestheyarehere"));
