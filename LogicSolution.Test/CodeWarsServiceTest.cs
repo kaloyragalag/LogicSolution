@@ -19,6 +19,44 @@ namespace LogicSolution.Test
             _codeWarsService = new CodeWarsService();
         }
 
+        #region DecodeMorseCode
+        [Test]
+        public void DecodeMorseCode_RandomMorse_ReturnCorrect()
+        {
+            try
+            {
+                string input = ".... . -.--   .--- ..- -.. .";
+                string expected = "HEY JUDE";
+
+                string actual = _codeWarsService.DecodeMorseCode(input);
+
+                Assert.AreEqual(expected, actual);
+            }
+            catch (Exception ex)
+            {
+                Assert.Fail("There seems to be an error somewhere in your code. Exception message reads as follows: " + ex.Message);
+            }
+        }
+
+        [Test]
+        public void DecodeMorseCode_SOSMorse_ReturnCorrect()
+        {
+            try
+            {
+                string input = "...---...";
+                string expected = "SOS";
+
+                string actual = _codeWarsService.DecodeMorseCode(input);
+
+                Assert.AreEqual(expected, actual);
+            }
+            catch (Exception ex)
+            {
+                Assert.Fail("There seems to be an error somewhere in your code. Exception message reads as follows: " + ex.Message);
+            }
+        }
+        #endregion
+
         #region FindOddInteger
         [Test]
         public void FindOddInteger_RandomArray_ReturnCorrect()

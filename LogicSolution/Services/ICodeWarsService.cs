@@ -7,6 +7,7 @@ namespace LogicSolution.Services
 {
     public interface ICodeWarsService
     {
+        string DecodeMorseCode(string morseCode);
         int FindOddInteger(int[] seq);
         int GetVowelCount(string str);
         IEnumerable<string> OpenOrSenior(int[][] data);

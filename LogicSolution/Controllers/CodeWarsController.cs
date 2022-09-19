@@ -27,6 +27,17 @@ namespace LogicSolution.Controllers
         }
 
         /// <summary>
+        /// A function that would take the morse code as input and return a decoded human-readable string
+        /// </summary>
+        /// <param name="morseCode">Morse Code</param>
+        /// <returns>Decoded Human-readable string</returns>
+        [HttpGet("decodeMorseCode")]
+        public string DecodeMorseCode(string morseCode)
+        {
+            return _codeWarsService.DecodeMorseCode(morseCode);
+        }
+
+        /// <summary>
         /// Given an array of integers, find the one that appears an odd number of times. There will always be only one integer that appears an odd number of times.
         /// </summary>
         /// <param name="seq">Array of Integers</param>

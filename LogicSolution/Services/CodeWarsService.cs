@@ -7,6 +7,14 @@ namespace LogicSolution.Services
 {
     public class CodeWarsService : ICodeWarsService
     {
+        public string DecodeMorseCode(string morseCode)
+        {
+            return String.Join(" "
+                    , morseCode.Split("   ")
+                    .Select(word => String.Join("", word.Split(" ").Select(letter => letter.GetMorse())))
+                ).Trim();
+        }
+
         public int FindOddInteger(int[] seq)
         {
             return seq.Where(number => seq.Count(x => x == number) % 2 != 0).FirstOrDefault();

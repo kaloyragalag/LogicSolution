@@ -18,6 +18,13 @@
             <param name="logger">Logger</param>
             <param name="codeWarsService">Repository</param>
         </member>
+        <member name="M:LogicSolution.Controllers.CodeWarsController.DecodeMorseCode(System.String)">
+            <summary>
+            A function that would take the morse code as input and return a decoded human-readable string
+            </summary>
+            <param name="morseCode">Morse Code</param>
+            <returns>Decoded Human-readable string</returns>
+        </member>
         <member name="M:LogicSolution.Controllers.CodeWarsController.FindOddInteger(System.Int32[])">
             <summary>
             Given an array of integers, find the one that appears an odd number of times. There will always be only one integer that appears an odd number of times.
