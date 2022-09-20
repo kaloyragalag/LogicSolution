@@ -76,25 +76,10 @@ namespace LogicSolution.Services
 
         public int[] MoveZeroes(int[] numbers)
         {
-            for (int i = 0; i < numbers.Length; i++)
-            {
-                if (numbers[i] == 0)
-                {
-                    bool found = false;
-                    for (int j = i + 1; !found && j < numbers.Length; j++)
-                    {
-                        if (numbers[j] != 0)
-                        {
-                            int tempVal = numbers[j];
-                            numbers[j] = numbers[i];
-                            numbers[i] = tempVal;
-                            found = true;
-                        }
-                    }
-                }
-            }
+            int[] numberZero = numbers.Where(x => x == 0).ToArray();
+            int[] numberNotZero = numbers.Where(x => x != 0).OrderBy(y => y).ToArray();
 
-            return numbers;
+            return numberNotZero.Concat(numberZero).ToArray();
         }
 
         public int FindMissingNumber(int[] numbers)
