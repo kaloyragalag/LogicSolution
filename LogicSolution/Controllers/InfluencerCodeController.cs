@@ -2,6 +2,7 @@
 using LogicSolution.Services;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
 namespace LogicSolution.Controllers
@@ -38,6 +39,18 @@ namespace LogicSolution.Controllers
         public IActionResult SumSmallestNumbers([FromQuery][Required]int[] numbers)
         {
             return Ok(new CommonResponse() { Data = _influencerCodeService.SumSmallestNumbers(numbers) });
+        }
+
+        /// <summary>
+        /// Takes an array of numbers and returns a new array, 1st element is count of positive numbers, 2nd element is sum of negative numbers.
+        /// </summary>
+        /// <param name="numbers">Array of integers</param>
+        /// <returns>Returns a new array, 1st element is count of positive numbers, 2nd element is sum of negative numbers.</returns>
+        [HttpGet("countSumNumbers")]
+        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(CommonResponse))]
+        public IActionResult CountSumNumbers([FromQuery][Required]int[] numbers)
+        {
+            return Ok(new CommonResponse() { Data = _influencerCodeService.CountSumNumbers(numbers) });
         }
     }
 }

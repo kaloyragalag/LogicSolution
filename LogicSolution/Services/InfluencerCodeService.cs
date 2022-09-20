@@ -61,11 +61,6 @@ namespace LogicSolution.Services
             else return 0;
         }
 
-        /// <summary>
-        /// Takes an array of numbers as parameter
-        /// </summary>
-        /// <param name="numbers">Array of integers</param>
-        /// <returns>Returns a new array, 1st element is count of positive numbers, 2nd element is sum of negative numbers.</returns>
         public List<int> CountSumNumbers(int[] numbers)
         {
             int countPositive = 0, sumNegative = 0;

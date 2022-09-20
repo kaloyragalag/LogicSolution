@@ -146,9 +146,9 @@
             <param name="numbers">Array of numbers</param>
             <returns>Returns the sum of the two smallest numbers in the array</returns>
         </member>
-        <member name="M:LogicSolution.Services.InfluencerCodeService.CountSumNumbers(System.Int32[])">
+        <member name="M:LogicSolution.Controllers.InfluencerCodeController.CountSumNumbers(System.Int32[])">
             <summary>
-            Takes an array of numbers as parameter
+            Takes an array of numbers and returns a new array, 1st element is count of positive numbers, 2nd element is sum of negative numbers.
             </summary>
             <param name="numbers">Array of integers</param>
             <returns>Returns a new array, 1st element is count of positive numbers, 2nd element is sum of negative numbers.</returns>
