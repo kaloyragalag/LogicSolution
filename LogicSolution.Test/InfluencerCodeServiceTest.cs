@@ -53,5 +53,17 @@ namespace LogicSolution.Test
             Assert.AreEqual(new List<int>(new int[] { 3, -3 }), _influencerCodeService.CountSumNumbers(new int[] { 5, 4, 3, -2, -1 }));
         }
         #endregion
+
+        #region SumSmallestNumbers
+        [Test]
+        public void MoveZeroes_RandomArrays_ReturnCorrect()
+        {
+            Assert.AreEqual(new List<int>(new int[] { 1, 2, 3, 4, 5, 0, 0, 0, 0, 0 }), _influencerCodeService.MoveZeroes(new int[] { 0, 0, 0, 0, 0, 1, 2, 3, 4, 5 }));
+            Assert.AreEqual(new List<int>(new int[] { -1, -2, -3, -4, -5, 0, 0, 0, 0, 0 }), _influencerCodeService.MoveZeroes(new int[] { 0, 0, 0, 0, 0, -1, -2, -3, -4, -5 }));
+
+            Assert.AreEqual(new List<int>(new int[] { 1, 2, 3, 4, 5, 0, 0, 0, 0, 0 }), _influencerCodeService.MoveZeroes(new int[] { 1, 2, 3, 0, 0, 0, 0, 0, 4, 5 }));
+            Assert.AreEqual(new List<int>(new int[] { -1, -2, -3, -4, -5, 0, 0, 0, 0, 0 }), _influencerCodeService.MoveZeroes(new int[] { -1, -2, -3, 0, 0, 0, 0, 0, -4, -5 }));
+        }
+        #endregion
     }
 }

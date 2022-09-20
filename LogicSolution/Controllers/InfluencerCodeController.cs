@@ -52,5 +52,17 @@ namespace LogicSolution.Controllers
         {
             return Ok(new CommonResponse() { Data = _influencerCodeService.CountSumNumbers(numbers) });
         }
+
+        /// <summary>
+        /// Takes an array of numbers as an argument. The function should move all zeroes to the end of the array
+        /// </summary>
+        /// <param name="numbers">Numbers</param>
+        /// <returns>Returns the modified array</returns>
+        [HttpGet("moveZeroes")]
+        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(CommonResponse))]
+        public IActionResult MoveZeroes([FromQuery][Required]int[] numbers)
+        {
+            return Ok(new CommonResponse() { Data = _influencerCodeService.MoveZeroes(numbers) });
+        }
     }
 }

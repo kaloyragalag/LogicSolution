@@ -7,7 +7,6 @@ namespace LogicSolution.Services
         string DurationFormatted(int seconds);
         int SumSmallestNumbers(int[] numbers);
         List<int> CountSumNumbers(int[] numbers);
-        int NextSmallest(int number);
         int[] MoveZeroes(int[] numbers);
         int FindMissingNumber(int[] numbers);
         string[] IsSortedAndHow(int[] numbers);

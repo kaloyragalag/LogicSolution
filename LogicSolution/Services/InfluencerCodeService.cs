@@ -74,53 +74,6 @@ namespace LogicSolution.Services
             return new List<int>() { countPositive, sumNegative };
         }
 
-        public int NextSmallest(int number)
-        {
-            List<int> separatedNum = new List<int>();
-
-            int originalNum = number;
-            for (int i = 0; number > 0; i++)
-            {
-                separatedNum.Add(number % 10);
-                number /= 10;
-            }
-
-            List<int> possibleNum = new List<int>();
-            for (int main = 0; main < separatedNum.Count; main++)
-            {
-                bool found = false;
-                for (int j = main + 1; j < separatedNum.Count && separatedNum[j] > separatedNum[main] && !found; j++)
-                {
-                    int tempValue = separatedNum[j];
-                    separatedNum[j] = separatedNum[main];
-                    separatedNum[main] = tempValue;
-                    found = true;
-                }
-
-                int newValue = 0, multiplier = 1;
-                for (int i = 0; i < separatedNum.Count - 1; i++)
-                {
-                    multiplier *= 10;
-                }
-
-                for (int i = separatedNum.Count - 1; i >= 0; i--)
-                {
-                    newValue += separatedNum[i] * multiplier;
-                    multiplier /= 10;
-                }
-                if (newValue < originalNum)
-                    possibleNum.Add(newValue);
-            }
-
-
-            return possibleNum.IndexOf(0);
-        }
-
-        /// <summary>
-        /// Takes an array of numbers as an argument. The function should move all zeroes to the end of the array
-        /// </summary>
-        /// <param name="numbers"></param>
-        /// <returns>Returns the modified array</returns>
         public int[] MoveZeroes(int[] numbers)
         {
             for (int i = 0; i < numbers.Length; i++)

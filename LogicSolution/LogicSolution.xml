@@ -153,11 +153,11 @@
             <param name="numbers">Array of integers</param>
             <returns>Returns a new array, 1st element is count of positive numbers, 2nd element is sum of negative numbers.</returns>
         </member>
-        <member name="M:LogicSolution.Services.InfluencerCodeService.MoveZeroes(System.Int32[])">
+        <member name="M:LogicSolution.Controllers.InfluencerCodeController.MoveZeroes(System.Int32[])">
             <summary>
             Takes an array of numbers as an argument. The function should move all zeroes to the end of the array
             </summary>
-            <param name="numbers"></param>
+            <param name="numbers">Numbers</param>
             <returns>Returns the modified array</returns>
         </member>
         <member name="M:LogicSolution.Services.InfluencerCodeService.FindMissingNumber(System.Int32[])">
