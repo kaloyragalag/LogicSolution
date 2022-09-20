@@ -97,23 +97,10 @@ namespace LogicSolution.Services
             return numbers;
         }
 
-        /// <summary>
-        /// Takes an array of numbers as an arugment. The function will find and return the missing number between 1-10.
-        /// </summary>
-        /// <param name="numbers"></param>
-        /// <returns>The missing number</returns>
         public int FindMissingNumber(int[] numbers)
         {
-            int maxValue = 10;
-            int sumAll = maxValue * (maxValue + 1) / 2;
-            int sumNumbers = 0;
-
-            for (int i = 0; i < maxValue - 1; i++)
-            {
-                sumNumbers += numbers[i];
-            }
-
-            return sumAll - sumNumbers;
+            int[] allNum = new int[] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
+            return allNum.FirstOrDefault(x => !numbers.Contains(x));
         }
 
         /// <summary>

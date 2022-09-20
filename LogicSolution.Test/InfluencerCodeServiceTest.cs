@@ -44,7 +44,7 @@ namespace LogicSolution.Test
         }
         #endregion
 
-        #region SumSmallestNumbers
+        #region CountSumNumbers
         [Test]
         public void CountSumNumbers_RandomArrays_ReturnCorrect()
         {
@@ -54,7 +54,7 @@ namespace LogicSolution.Test
         }
         #endregion
 
-        #region SumSmallestNumbers
+        #region MoveZeroes
         [Test]
         public void MoveZeroes_RandomArrays_ReturnCorrect()
         {
@@ -63,6 +63,21 @@ namespace LogicSolution.Test
 
             Assert.AreEqual(new List<int>(new int[] { 1, 2, 3, 4, 5, 0, 0, 0, 0, 0 }), _influencerCodeService.MoveZeroes(new int[] { 1, 2, 3, 0, 0, 0, 0, 0, 4, 5 }));
             Assert.AreEqual(new List<int>(new int[] { -1, -2, -3, -4, -5, 0, 0, 0, 0, 0 }), _influencerCodeService.MoveZeroes(new int[] { -1, -2, -3, 0, 0, 0, 0, 0, -4, -5 }));
+        }
+        #endregion
+
+        #region FindMissingNumber
+        [Test]
+        public void FindMissingNumber_RandomArrays_ReturnCorrect()
+        {
+            Assert.AreEqual(1, _influencerCodeService.FindMissingNumber(new int[] { 2, 3, 4, 5, 6, 7, 8, 9, 10 }));
+            Assert.AreEqual(10, _influencerCodeService.FindMissingNumber(new int[] { 1, 2, 3, 4, 5, 6, 7, 8, 9 }));
+            Assert.AreEqual(5, _influencerCodeService.FindMissingNumber(new int[] { 1, 2, 3, 4, 6, 7, 8, 9, 10 }));
+
+
+            Assert.AreEqual(1, _influencerCodeService.FindMissingNumber(new int[] { 10, 9, 8, 7, 6, 5, 4, 3, 2 }));
+            Assert.AreEqual(10, _influencerCodeService.FindMissingNumber(new int[] { 9, 8, 7, 6, 5, 4, 3, 2, 1 }));
+            Assert.AreEqual(5, _influencerCodeService.FindMissingNumber(new int[] { 10, 9, 8, 7, 6, 4, 3, 2, 1 }));
         }
         #endregion
     }

@@ -160,11 +160,11 @@
             <param name="numbers">Numbers</param>
             <returns>Returns the modified array</returns>
         </member>
-        <member name="M:LogicSolution.Services.InfluencerCodeService.FindMissingNumber(System.Int32[])">
+        <member name="M:LogicSolution.Controllers.InfluencerCodeController.FindMissingNumber(System.Int32[])">
             <summary>
             Takes an array of numbers as an arugment. The function will find and return the missing number between 1-10.
             </summary>
-            <param name="numbers"></param>
+            <param name="numbers">Numbers</param>
             <returns>The missing number</returns>
         </member>
         <member name="M:LogicSolution.Services.InfluencerCodeService.IsSortedAndHow(System.Int32[])">

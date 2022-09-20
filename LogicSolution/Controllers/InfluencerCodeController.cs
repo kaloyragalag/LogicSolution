@@ -64,5 +64,17 @@ namespace LogicSolution.Controllers
         {
             return Ok(new CommonResponse() { Data = _influencerCodeService.MoveZeroes(numbers) });
         }
+
+        /// <summary>
+        /// Takes an array of numbers as an arugment. The function will find and return the missing number between 1-10.
+        /// </summary>
+        /// <param name="numbers">Numbers</param>
+        /// <returns>The missing number</returns>
+        [HttpGet("findMissingNumber")]
+        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(CommonResponse))]
+        public IActionResult FindMissingNumber([FromQuery][Required]int[] numbers)
+        {
+            return Ok(new CommonResponse() { Data = _influencerCodeService.FindMissingNumber(numbers) });
+        }
     }
 }
