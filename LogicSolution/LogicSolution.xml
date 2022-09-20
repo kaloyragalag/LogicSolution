@@ -167,6 +167,13 @@
             <param name="numbers">Numbers</param>
             <returns>The missing number</returns>
         </member>
+        <member name="M:LogicSolution.Controllers.InfluencerCodeController.IsSortedAndHow(System.Int32[])">
+            <summary>
+            Takes an array of numbers as an arugment. The function should check if the array is sorted and in which order.
+            </summary>
+            <param name="numbers">Numbers</param>
+            <returns>The missing number</returns>
+        </member>
         <member name="M:LogicSolution.Services.InfluencerCodeService.IsSortedAndHow(System.Int32[])">
             <summary>
             Takes an array of numbers as an arugment. The function should check if the array is sorted and in which order.

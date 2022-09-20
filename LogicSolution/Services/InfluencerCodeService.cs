@@ -88,40 +88,20 @@ namespace LogicSolution.Services
             return allNum.FirstOrDefault(x => !numbers.Contains(x));
         }
 
-        /// <summary>
-        /// Takes an array of numbers as an arugment. The function should check if the array is sorted and in which order.
-        /// </summary>
-        /// <param name="numbers"></param>
-        /// <returns>The missing number</returns>
         public string[] IsSortedAndHow(int[] numbers)
         {
             if (numbers.Length > 1)
             {
-                bool isSorted = true, isAscending = false;
+                int[] sortedAsc = numbers.OrderBy(x => x).ToArray();
+                int[] sortedDesc = numbers.OrderByDescending(x => x).ToArray();
 
-
-                for (int i = 0; i < numbers.Length - 1 && isSorted; i++)
+                if (sortedAsc.SequenceEqual(numbers))
                 {
-                    if (i == 0)
-                    {
-                        isAscending = (numbers[i] < numbers[i + 1]);
-                    }
-                    else
-                    {
-                        if (isAscending)
-                        {
-                            isSorted = (numbers[i] < numbers[i + 1]);
-                        }
-                        else
-                        {
-                            isSorted = (numbers[i] > numbers[i + 1]);
-                        }
-                    }
+                    return new string[] { "YES", "ASCENDING" };
                 }
-
-                if (isSorted)
+                else if (sortedDesc.SequenceEqual(numbers))
                 {
-                    return new string[] { "YES", isAscending ? "ASCENDING" : "DESCENDING" };
+                    return new string[] { "YES", "DESCENDING" };
                 }
                 else
                 {

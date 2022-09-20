@@ -80,5 +80,21 @@ namespace LogicSolution.Test
             Assert.AreEqual(5, _influencerCodeService.FindMissingNumber(new int[] { 10, 9, 8, 7, 6, 4, 3, 2, 1 }));
         }
         #endregion
+
+        #region IsSortedAndHow
+        [Test]
+        public void IsSortedAndHow_RandomArrays_ReturnCorrect()
+        {
+            Assert.AreEqual(new string[] { "YES", "ASCENDING" }, _influencerCodeService.IsSortedAndHow(new int[] { 2, 3, 4, 5, 6, 7, 8, 9, 10 }));
+            Assert.AreEqual(new string[] { "YES", "DESCENDING" }, _influencerCodeService.IsSortedAndHow(new int[] { 10, 9, 8, 7, 6, 5, 4, 3, 2 }));
+            Assert.AreEqual(new string[] { "NO" }, _influencerCodeService.IsSortedAndHow(new int[] { 10, 1, 9, 8, 7, 6, 5, 4, 3, 2 }));
+
+            Assert.AreEqual(new string[] { "YES", "DESCENDING" }, _influencerCodeService.IsSortedAndHow(new int[] { -2, -3, -4, -5, -6, -7, -8, -9, -10 }));
+            Assert.AreEqual(new string[] { "YES", "ASCENDING" }, _influencerCodeService.IsSortedAndHow(new int[] { -10, -9, -8, -7, -6, -5, -4, -3, -2 }));
+            Assert.AreEqual(new string[] { "NO" }, _influencerCodeService.IsSortedAndHow(new int[] { -10, -1, -9, -8, -7, -6, -5, -4, -3, -2 }));
+
+            Assert.AreEqual(new string[] { "NA" }, _influencerCodeService.IsSortedAndHow(new int[] { 1 }));
+        }
+        #endregion
     }
 }

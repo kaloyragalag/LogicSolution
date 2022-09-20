@@ -24,7 +24,7 @@ namespace LogicSolution.Controllers
         /// <returns>A string in a human-readable format. Ex: 1 hour, 1 minute, 2 seconds</returns>
         [HttpGet("durationFormatted")]
         [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(CommonResponse))]
-        public IActionResult DurationFormatted([FromQuery][Required]int seconds)
+        public IActionResult DurationFormatted([FromQuery][Required] int seconds)
         {
             return Ok(new CommonResponse() { Data = _influencerCodeService.DurationFormatted(seconds) });
         }
@@ -36,7 +36,7 @@ namespace LogicSolution.Controllers
         /// <returns>Returns the sum of the two smallest numbers in the array</returns>
         [HttpGet("sumSmallestNumbers")]
         [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(CommonResponse))]
-        public IActionResult SumSmallestNumbers([FromQuery][Required]int[] numbers)
+        public IActionResult SumSmallestNumbers([FromQuery][Required] int[] numbers)
         {
             return Ok(new CommonResponse() { Data = _influencerCodeService.SumSmallestNumbers(numbers) });
         }
@@ -48,7 +48,7 @@ namespace LogicSolution.Controllers
         /// <returns>Returns a new array, 1st element is count of positive numbers, 2nd element is sum of negative numbers.</returns>
         [HttpGet("countSumNumbers")]
         [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(CommonResponse))]
-        public IActionResult CountSumNumbers([FromQuery][Required]int[] numbers)
+        public IActionResult CountSumNumbers([FromQuery][Required] int[] numbers)
         {
             return Ok(new CommonResponse() { Data = _influencerCodeService.CountSumNumbers(numbers) });
         }
@@ -60,7 +60,7 @@ namespace LogicSolution.Controllers
         /// <returns>Returns the modified array</returns>
         [HttpGet("moveZeroes")]
         [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(CommonResponse))]
-        public IActionResult MoveZeroes([FromQuery][Required]int[] numbers)
+        public IActionResult MoveZeroes([FromQuery][Required] int[] numbers)
         {
             return Ok(new CommonResponse() { Data = _influencerCodeService.MoveZeroes(numbers) });
         }
@@ -72,9 +72,21 @@ namespace LogicSolution.Controllers
         /// <returns>The missing number</returns>
         [HttpGet("findMissingNumber")]
         [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(CommonResponse))]
-        public IActionResult FindMissingNumber([FromQuery][Required]int[] numbers)
+        public IActionResult FindMissingNumber([FromQuery][Required] int[] numbers)
         {
             return Ok(new CommonResponse() { Data = _influencerCodeService.FindMissingNumber(numbers) });
+        }
+
+        /// <summary>
+        /// Takes an array of numbers as an argument. The function should check if the array is sorted and in which order.
+        /// </summary>
+        /// <param name="numbers">Numbers</param>
+        /// <returns>The missing number</returns>
+        [HttpGet("isSortedAndHow")]
+        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(CommonResponse))]
+        public IActionResult IsSortedAndHow([FromQuery][Required] int[] numbers)
+        {
+            return Ok(new CommonResponse() { Data = _influencerCodeService.IsSortedAndHow(numbers) });
         }
     }
 }
