@@ -88,5 +88,17 @@ namespace LogicSolution.Controllers
         {
             return Ok(new CommonResponse() { Data = _influencerCodeService.IsSortedAndHow(numbers) });
         }
+
+        /// <summary>
+        /// Takes a number as parameter. Sum all positive numbers smaller than the given number divisible by 5 or 3
+        /// </summary>
+        /// <param name="number">Number</param>
+        /// <returns>Sum smaller than the given number divisible by 5 or 3</returns>
+        [HttpGet("sumMultiples")]
+        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(CommonResponse))]
+        public IActionResult SumMultiples([FromQuery][Required]int number)
+        {
+            return Ok(new CommonResponse() { Data = _influencerCodeService.SumMultiples(number) });
+        }
     }
 }

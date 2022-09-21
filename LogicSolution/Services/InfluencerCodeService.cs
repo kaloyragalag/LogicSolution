@@ -114,11 +114,6 @@ namespace LogicSolution.Services
             }
         }
 
-        /// <summary>
-        /// Takes a number as parameter. Sum all positive numbers smaller than the given number divisible by 5 or 3
-        /// </summary>
-        /// <param name="number"></param>
-        /// <returns></returns>
         public int SumMultiples(int number)
         {
             int sum = 0;

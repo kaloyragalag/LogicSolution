@@ -96,5 +96,17 @@ namespace LogicSolution.Test
             Assert.AreEqual(new string[] { "NA" }, _influencerCodeService.IsSortedAndHow(new int[] { 1 }));
         }
         #endregion
+
+        #region IsSortedAndHow
+        [Test]
+        public void SumMultiples_RandomNumbers_ReturnCorrect()
+        {
+            Assert.AreEqual(0, _influencerCodeService.SumMultiples(1));
+            Assert.AreEqual(3, _influencerCodeService.SumMultiples(5));
+            Assert.AreEqual(23, _influencerCodeService.SumMultiples(10));
+            Assert.AreEqual(45, _influencerCodeService.SumMultiples(15));
+            Assert.AreEqual(78, _influencerCodeService.SumMultiples(20));
+        }
+        #endregion
     }
 }
