@@ -100,5 +100,17 @@ namespace LogicSolution.Controllers
         {
             return Ok(new CommonResponse() { Data = _influencerCodeService.SumMultiples(number) });
         }
+
+        /// <summary>
+        /// If the number is even, divide it into two closest odd numbers where sum is the number, else return the number.
+        /// </summary>
+        /// <param name="number"></param>
+        /// <returns></returns>
+        [HttpGet("divideIntoOdd")]
+        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(CommonResponse))]
+        public IActionResult DivideIntoOdd(int number)
+        {
+            return Ok(new CommonResponse() { Data = _influencerCodeService.DivideIntoOdd(number) });
+        }
     }
 }

@@ -97,7 +97,7 @@ namespace LogicSolution.Test
         }
         #endregion
 
-        #region IsSortedAndHow
+        #region SumMultiples
         [Test]
         public void SumMultiples_RandomNumbers_ReturnCorrect()
         {
@@ -106,6 +106,23 @@ namespace LogicSolution.Test
             Assert.AreEqual(23, _influencerCodeService.SumMultiples(10));
             Assert.AreEqual(45, _influencerCodeService.SumMultiples(15));
             Assert.AreEqual(78, _influencerCodeService.SumMultiples(20));
+        }
+        #endregion
+
+        #region DivideIntoOdd
+        [Test]
+        public void DivideIntoOdd_RandomNumbers_ReturnCorrect()
+        {
+            Assert.AreEqual(new int[] { 1 }, _influencerCodeService.DivideIntoOdd(1));
+            Assert.AreEqual(new int[] { 1, 1 }, _influencerCodeService.DivideIntoOdd(2));
+            Assert.AreEqual(new int[] { 3 }, _influencerCodeService.DivideIntoOdd(3));
+            Assert.AreEqual(new int[] { 1, 3 }, _influencerCodeService.DivideIntoOdd(4));
+            Assert.AreEqual(new int[] { 5 }, _influencerCodeService.DivideIntoOdd(5));
+            Assert.AreEqual(new int[] { 3, 3 }, _influencerCodeService.DivideIntoOdd(6));
+            Assert.AreEqual(new int[] { 7 }, _influencerCodeService.DivideIntoOdd(7));
+            Assert.AreEqual(new int[] { 3, 5 }, _influencerCodeService.DivideIntoOdd(8));
+            Assert.AreEqual(new int[] { 9 }, _influencerCodeService.DivideIntoOdd(9));
+            Assert.AreEqual(new int[] { 5, 5 }, _influencerCodeService.DivideIntoOdd(10));
         }
         #endregion
     }

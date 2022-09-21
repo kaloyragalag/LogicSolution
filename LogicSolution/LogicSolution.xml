@@ -181,10 +181,9 @@
             <param name="number">Number</param>
             <returns>Sum smaller than the given number divisible by 5 or 3</returns>
         </member>
-        <member name="M:LogicSolution.Services.InfluencerCodeService.DivideIntoOdd(System.Int32)">
+        <member name="M:LogicSolution.Controllers.InfluencerCodeController.DivideIntoOdd(System.Int32)">
             <summary>
-            If the number is even, divide it into two closest odd numbers (which by summing it returns to the even number)
-            If the number passed by parameter is odd, return the number itself within a one-position array.
+            If the number is even, divide it into two closest odd numbers where sum is the number, else return the number.
             </summary>
             <param name="number"></param>
             <returns></returns>

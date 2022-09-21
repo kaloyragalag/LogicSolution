@@ -129,12 +129,6 @@ namespace LogicSolution.Services
             return sum;
         }
 
-        /// <summary>
-        /// If the number is even, divide it into two closest odd numbers (which by summing it returns to the even number)
-        /// If the number passed by parameter is odd, return the number itself within a one-position array.
-        /// </summary>
-        /// <param name="number"></param>
-        /// <returns></returns>
         public int[] DivideIntoOdd(int number)
         {
             if (number % 2 == 0)
