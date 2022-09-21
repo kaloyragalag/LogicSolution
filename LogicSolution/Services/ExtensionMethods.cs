@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System;
 using System.Linq;
+using LogicSolution.Model;
 
 namespace LogicSolution.Services
 {
@@ -77,6 +78,11 @@ namespace LogicSolution.Services
             string morseValue;
             morseList.TryGetValue(morse, out morseValue);
             return morseValue;
+        }
+
+        public static bool PhraseCheck(this PhraseParser x, PhraseParser y)
+        {
+            return x.Characters == y.Characters && x.Words == y.Words && x.Lines == y.Lines;
         }
     }
 }

@@ -9,6 +9,6 @@ namespace LogicSolution.Model
     {
         public bool IsError { get; set; }
         public object Data { get; set; }
-        public string UserMessage { get; set; }
+        public string UserMessage { get; set; } = "Success";
     }
 }
