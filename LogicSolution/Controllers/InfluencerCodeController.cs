@@ -118,12 +118,24 @@ namespace LogicSolution.Controllers
         /// </summary>
         /// <param name="baseNum">Base Number</param>
         /// <param name="powerNum">Power</param>
-        /// <returns>Return the answer & last digit of the resulting value</returns>
+        /// <returns>Return the answer and last digit of the resulting value</returns>
         [HttpGet("powerLastDigit")]
         [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(CommonResponse))]
         public IActionResult PowerLastDigit([FromQuery][Required] double baseNum, [FromQuery][Required] double powerNum)
         {
             return Ok(new CommonResponse() { Data = _influencerCodeService.PowerLastDigit(baseNum, powerNum) });
+        }
+
+        /// <summary>
+        /// The function must count characters, words and lines, returning an object with these values.
+        /// </summary>
+        /// <param name="phrase">Phrase</param>
+        /// <returns>Count on each</returns>
+        [HttpGet("phraseParser")]
+        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(PhraseParser))]
+        public IActionResult PhraseParser([FromQuery][Required]string phrase)
+        {
+            return Ok(new CommonResponse() { Data = _influencerCodeService.PhraseParser(phrase) });
         }
     }
 }

@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System;
 using System.Linq;
+using LogicSolution.Model;
 
 namespace LogicSolution.Services
 {
@@ -167,12 +168,7 @@ namespace LogicSolution.Services
             return new double[] { lastDigit, lastDigit % 10 };
         }
 
-        /// <summary>
-        /// The function must count characters, words and lines, returning an object with these values.
-        /// </summary>
-        /// <param name="phrase"></param>
-        /// <returns></returns>
-        public string PhraseParser(string phrase)
+        public PhraseParser PhraseParser(string phrase)
         {
             int characters = 0, words = 0, lines = 0;
 
@@ -182,7 +178,7 @@ namespace LogicSolution.Services
 
             characters = phrase.Length;
 
-            return string.Format("Characters: {0}, Words: {1}, Lines: {2}", characters, words, lines);
+            return new PhraseParser() { Characters = characters, Words = words, Lines = lines };
         }
     }
 }

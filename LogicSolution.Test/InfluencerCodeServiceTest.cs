@@ -1,4 +1,5 @@
-﻿using LogicSolution.Services;
+﻿using LogicSolution.Model;
+using LogicSolution.Services;
 using NUnit.Framework;
 using System;
 using System.Collections.Generic;
@@ -126,7 +127,7 @@ namespace LogicSolution.Test
         }
         #endregion
 
-        #region DivideIntoOdd
+        #region PowerLastDigit
         [Test]
         public void PowerLastDigit_RandomNumbers_ReturnCorrect()
         {
@@ -135,6 +136,16 @@ namespace LogicSolution.Test
             Assert.AreEqual(new int[] { 27, 7 }, _influencerCodeService.PowerLastDigit(3, 3));
             Assert.AreEqual(new int[] { 256, 6 }, _influencerCodeService.PowerLastDigit(4, 4));
             Assert.AreEqual(new int[] { 3125, 5 }, _influencerCodeService.PowerLastDigit(5, 5));
+        }
+        #endregion
+
+        #region PhraseParser
+        [Test]
+        public void PhraseParser_RandomTexts_ReturnCounts()
+        {
+            Assert.That(new PhraseParser() { Characters = 3, Words = 1, Lines = 1}.PhraseCheck(_influencerCodeService.PhraseParser("The")));
+            Assert.That(new PhraseParser() { Characters = 11, Words = 2, Lines = 1 }.PhraseCheck(_influencerCodeService.PhraseParser("Hello world")));
+            Assert.That(new PhraseParser() { Characters = 15, Words = 3, Lines = 1 }.PhraseCheck(_influencerCodeService.PhraseParser("The quick brown")));
         }
         #endregion
     }

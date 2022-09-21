@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using LogicSolution.Model;
+using System.Collections.Generic;
 
 namespace LogicSolution.Services
 {
@@ -13,6 +14,6 @@ namespace LogicSolution.Services
         int SumMultiples(int number);
         int[] DivideIntoOdd(int number);
         double[] PowerLastDigit(double baseNum, double powerNum);
-        string PhraseParser(string phrase);
+        PhraseParser PhraseParser(string phrase);
     }
 }
