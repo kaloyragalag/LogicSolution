@@ -112,5 +112,18 @@ namespace LogicSolution.Controllers
         {
             return Ok(new CommonResponse() { Data = _influencerCodeService.DivideIntoOdd(number) });
         }
+
+        /// <summary>
+        /// The function must calculate parameter 1, raised to the power of parameter 2, and return result and the last digit of the resulting value.
+        /// </summary>
+        /// <param name="baseNum">Base Number</param>
+        /// <param name="powerNum">Power</param>
+        /// <returns>Return the answer & last digit of the resulting value</returns>
+        [HttpGet("powerLastDigit")]
+        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(CommonResponse))]
+        public IActionResult PowerLastDigit([FromQuery][Required] double baseNum, [FromQuery][Required] double powerNum)
+        {
+            return Ok(new CommonResponse() { Data = _influencerCodeService.PowerLastDigit(baseNum, powerNum) });
+        }
     }
 }

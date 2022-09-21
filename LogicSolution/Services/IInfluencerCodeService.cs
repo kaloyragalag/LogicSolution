@@ -12,7 +12,7 @@ namespace LogicSolution.Services
         string[] IsSortedAndHow(int[] numbers);
         int SumMultiples(int number);
         int[] DivideIntoOdd(int number);
-        double LastDigit(double baseNum, double powerNum);
+        double[] PowerLastDigit(double baseNum, double powerNum);
         string PhraseParser(string phrase);
     }
 }

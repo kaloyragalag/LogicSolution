@@ -158,19 +158,13 @@ namespace LogicSolution.Services
             }
         }
 
-        /// <summary>
-        /// The function must calculate parameter 1, raised to the power of parameter 2, and return the last digit of the resulting value.
-        /// </summary>
-        /// <param name="baseNum">Base Number</param>
-        /// <param name="powerNum">Power</param>
-        /// <returns>Return the last digit of the resulting value</returns>
-        public double LastDigit(double baseNum, double powerNum)
+        public double[] PowerLastDigit(double baseNum, double powerNum)
         {
             double lastDigit = 0;
 
             lastDigit = Math.Pow(baseNum, powerNum);
 
-            return lastDigit % 10;
+            return new double[] { lastDigit, lastDigit % 10 };
         }
 
         /// <summary>

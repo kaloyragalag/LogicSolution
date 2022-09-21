@@ -125,5 +125,17 @@ namespace LogicSolution.Test
             Assert.AreEqual(new int[] { 5, 5 }, _influencerCodeService.DivideIntoOdd(10));
         }
         #endregion
+
+        #region DivideIntoOdd
+        [Test]
+        public void PowerLastDigit_RandomNumbers_ReturnCorrect()
+        {
+            Assert.AreEqual(new int[] { 1, 1 }, _influencerCodeService.PowerLastDigit(1, 1));
+            Assert.AreEqual(new int[] { 4, 4 }, _influencerCodeService.PowerLastDigit(2, 2));
+            Assert.AreEqual(new int[] { 27, 7 }, _influencerCodeService.PowerLastDigit(3, 3));
+            Assert.AreEqual(new int[] { 256, 6 }, _influencerCodeService.PowerLastDigit(4, 4));
+            Assert.AreEqual(new int[] { 3125, 5 }, _influencerCodeService.PowerLastDigit(5, 5));
+        }
+        #endregion
     }
 }

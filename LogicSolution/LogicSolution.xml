@@ -188,14 +188,7 @@
             <param name="number"></param>
             <returns></returns>
         </member>
-        <member name="M:LogicSolution.Services.InfluencerCodeService.LastDigit(System.Double,System.Double)">
-            <summary>
-            The function must calculate parameter 1, raised to the power of parameter 2, and return the last digit of the resulting value.
-            </summary>
-            <param name="baseNum">Base Number</param>
-            <param name="powerNum">Power</param>
-            <returns>Return the last digit of the resulting value</returns>
-        </member>
+        <!-- Badly formed XML comment ignored for member "M:LogicSolution.Controllers.InfluencerCodeController.PowerLastDigit(System.Double,System.Double)" -->
         <member name="M:LogicSolution.Services.InfluencerCodeService.PhraseParser(System.String)">
             <summary>
             The function must count characters, words and lines, returning an object with these values.
