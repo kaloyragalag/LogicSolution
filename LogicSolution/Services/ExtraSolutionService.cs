@@ -25,50 +25,57 @@ namespace LogicSolution.Services
 
         public async Task<MetaData> ExtractMetaData(string link)
         {
-            MetaData metaData = new MetaData() { Link = link };
-
-            using (var httpclient = new HttpClient())
+            try
             {
-                using (var response = await httpclient.GetAsync(link))
+                MetaData metaData = new MetaData() { Link = link };
+
+                using (var httpclient = new HttpClient())
                 {
-                    using (var stream = await response.Content.ReadAsStreamAsync())
+                    using (var response = await httpclient.GetAsync(link))
                     {
-                        var buffer = new byte[stream.Length];
-                        stream.Read(buffer, 0, buffer.Length);
-
-                        var fullHtml = Encoding.UTF8.GetString(buffer);
-
-                        var doc = new HtmlDocument();
-                        doc.LoadHtml(fullHtml);
-
-                        var list = doc.DocumentNode.SelectNodes("//meta");
-                        foreach (var node in list)
+                        using (var stream = await response.Content.ReadAsStreamAsync())
                         {
-                            string name = node.GetAttributeValue("name", "");
-                            name = node.GetAttributeValue("property", name);
-                            string content = node.GetAttributeValue("content", "");
+                            var buffer = new byte[stream.Length];
+                            stream.Read(buffer, 0, buffer.Length);
 
-                            if (dictMetaTypes[METATYPE.LINK].Any(x => x.ToUpper() == name.ToUpper()))
+                            var fullHtml = Encoding.UTF8.GetString(buffer);
+
+                            var doc = new HtmlDocument();
+                            doc.LoadHtml(fullHtml);
+
+                            var list = doc.DocumentNode.SelectNodes("//meta");
+                            foreach (var node in list)
                             {
-                                metaData.Link = content;
-                            }
-                            else if (dictMetaTypes[METATYPE.TITLE].Any(x => x.ToUpper() == name.ToUpper()))
-                            {
-                                metaData.Title = content;
-                            }
-                            else if (dictMetaTypes[METATYPE.DESCRIPTION].Any(x => x.ToUpper() == name.ToUpper()))
-                            {
-                                metaData.Description = content;
-                            }
-                            else if (dictMetaTypes[METATYPE.IMAGE].Any(x => x.ToUpper() == name.ToUpper()))
-                            {
-                                metaData.Image = content;
+                                string name = node.GetAttributeValue("name", "");
+                                name = node.GetAttributeValue("property", name);
+                                string content = node.GetAttributeValue("content", "");
+
+                                if (dictMetaTypes[METATYPE.LINK].Any(x => x.ToUpper() == name.ToUpper()))
+                                {
+                                    metaData.Link = content;
+                                }
+                                else if (dictMetaTypes[METATYPE.TITLE].Any(x => x.ToUpper() == name.ToUpper()))
+                                {
+                                    metaData.Title = content;
+                                }
+                                else if (dictMetaTypes[METATYPE.DESCRIPTION].Any(x => x.ToUpper() == name.ToUpper()))
+                                {
+                                    metaData.Description = content;
+                                }
+                                else if (dictMetaTypes[METATYPE.IMAGE].Any(x => x.ToUpper() == name.ToUpper()))
+                                {
+                                    metaData.Image = content;
+                                }
                             }
                         }
                     }
                 }
+                return metaData;
             }
-            return metaData;
+            catch (Exception)
+            {
+                throw;
+            }
         }
     }
 }

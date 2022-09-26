@@ -2,6 +2,7 @@
 using LogicSolution.Services;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using System;
 using System.ComponentModel.DataAnnotations;
 using System.Threading.Tasks;
 
@@ -28,10 +29,17 @@ namespace LogicSolution.Controllers
         [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(MetaData))]
         public async Task<IActionResult> ExtractMetaData([FromQuery][Required] string link)
         {
-            return Ok(new CommonResponse()
+            try
             {
-                Data = await _extraSolutionService.ExtractMetaData(link)
-            }); ;
+                return Ok(new CommonResponse()
+                {
+                    Data = await _extraSolutionService.ExtractMetaData(link)
+                }); ;
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(new CommonResponse() { IsError = true, UserMessage = "Failed", Data = ex.Message });
+            }
         }
 
     }
