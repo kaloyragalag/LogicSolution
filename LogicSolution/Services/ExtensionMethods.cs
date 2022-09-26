@@ -2,6 +2,8 @@
 using System;
 using System.Linq;
 using LogicSolution.Model;
+using System.ComponentModel;
+using System.Reflection;
 
 namespace LogicSolution.Services
 {
