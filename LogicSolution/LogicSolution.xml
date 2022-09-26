@@ -132,6 +132,13 @@
             <param name="board">2D board</param>
             <returns>True/False</returns>
         </member>
+        <member name="M:LogicSolution.Controllers.ExtraSolutionController.ExtractMetaData(System.String)">
+            <summary>
+            The function will extract the meta data from a given url link.
+            </summary>
+            <param name="link">Link</param>
+            <returns>Meta Data</returns>
+        </member>
         <member name="M:LogicSolution.Controllers.InfluencerCodeController.DurationFormatted(System.Int32)">
             <summary>
             The function returns a human-readable format given a value of seconds in integer. Ex: 1 hour, 1 minute, 2 seconds

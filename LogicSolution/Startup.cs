@@ -58,6 +58,7 @@ namespace LogicSolution
             });
             services.AddScoped<ICodeWarsService, CodeWarsService>();
             services.AddScoped<IInfluencerCodeService, InfluencerCodeService>();
+            services.AddScoped<IExtraSolutionService, ExtraSolutionService>();
             services.AddSingleton<IAuthorizeService>(new AuthorizeService(key));
         }
 
