@@ -1,8 +1,10 @@
+using LogicSolution.Data;
 using LogicSolution.Services;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -32,6 +34,10 @@ namespace LogicSolution
         {
             string key = Configuration["Jwt:Key"];
             services.AddControllers();
+            services.AddDbContext<DataContext>(options =>
+            {
+                options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"));
+            });
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "LogicSolution", Version = "v1" });
@@ -56,6 +62,7 @@ namespace LogicSolution
                     ValidateAudience = false
                 };
             });
+            services.AddTransient<DataSeeder>();
             services.AddScoped<ICodeWarsService, CodeWarsService>();
             services.AddScoped<IInfluencerCodeService, InfluencerCodeService>();
             services.AddScoped<IExtraSolutionService, ExtraSolutionService>();
