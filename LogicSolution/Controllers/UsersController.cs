@@ -35,7 +35,7 @@ namespace LogicSolution.Controllers
         [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(User))]
         public async Task<IActionResult> Get(int id)
         {
-            var user = await _context.Users.FirstOrDefaultAsync(m => m.UserId == id);
+            var user = await _context.Users.FirstOrDefaultAsync(m => m.Id == id);
             if (user == null)
                 return NotFound();
             return Ok(user);
@@ -54,7 +54,7 @@ namespace LogicSolution.Controllers
         [HttpPatch]
         public async Task<IActionResult> Update(User user)
         {
-            User dbUser = await _context.Users.FindAsync(user.UserId);
+            User dbUser = await _context.Users.FindAsync(user.Id);
             if (dbUser == null)
             {
                 return NotFound();

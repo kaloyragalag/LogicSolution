@@ -20,5 +20,7 @@ namespace LogicSolution.Data
         }
 
         public DbSet<User> Users { get; set; }
+
+        public DbSet<TimeLogs> TimeLogs { get; set; }
     }
 }

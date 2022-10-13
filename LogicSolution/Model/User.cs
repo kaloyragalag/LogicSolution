@@ -1,10 +1,11 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace LogicSolution.Model
 {
     public class User
     {
-        public int UserId { get; set; }
+        public int Id { get; set; }
 
         [Required]
         public string UserName { get; set; }
@@ -16,5 +17,7 @@ namespace LogicSolution.Model
 
         [Required, EmailAddress]
         public string Email { get; set; }
+
+        public List<TimeLogs> TimeLogs { get; set; }
     }
 }
