@@ -20,11 +20,29 @@ export class JSSolution extends Component {
         alert(strng.substring(0, idxNum) + newOffsetNum);
     }
 
+    titleCase(title, minorWords) {
+        var first = true; 
+        alert(title.split(" ").map(x => {
+            if (first || minorWords == null || !minorWords.split(" ").some(y => y.toUpperCase() == x.toUpperCase())) {
+                first = false;
+                return x[0].toUpperCase().concat(x.substring(1).toLowerCase());
+            } else {
+                return x.toLowerCase();
+            }
+        }).join(" "));
+    }
+
     render() {
         return (
             <div>
-                <h1>Increment String</h1>
-                <button onClick={() => this.incrementString('009')} > Click</button>
+                <div>
+                    <h1>Increment String</h1>
+                    <button onClick={() => this.incrementString('009')} > Click</button>
+                </div>
+                <div>
+                    <h1>Title Case</h1>
+                    <button onClick={() => this.titleCase('the quick brown fox')} > Click</button>
+                </div>
             </div>
         );
     }
