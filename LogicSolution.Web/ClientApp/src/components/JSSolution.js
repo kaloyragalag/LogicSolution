@@ -32,6 +32,12 @@ export class JSSolution extends Component {
         }).join(" "));
     }
 
+    moveZeros(arr) {
+        var arrNonZero = arr.filter(x => x !== 0);
+        var arrZero = arr.filter(x => x === 0);
+        alert(arrNonZero.concat(arrZero));
+    }
+
     render() {
         return (
             <div>
@@ -42,6 +48,10 @@ export class JSSolution extends Component {
                 <div>
                     <h1>Title Case</h1>
                     <button onClick={() => this.titleCase('the quick brown fox')} > Click</button>
+                </div>
+                <div>
+                    <h1>Move Zeroes</h1>
+                    <button onClick={() => this.moveZeros([1, 2, 0, 1, 0, 1, 0, 3, 0, 1])} > Click</button>
                 </div>
             </div>
         );
