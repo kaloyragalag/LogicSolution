@@ -38,6 +38,36 @@ export class JSSolution extends Component {
         alert(arrNonZero.concat(arrZero));
     }
 
+    rangeExtraction(list) {
+        var temp = list[0], min = list[0], max = undefined, ctr = 1, strRange = [];
+        for (var i = 1; i < list.length; i++) {
+            if (list[i] == temp + 1) {
+                max = list[i];
+                ctr++;
+            } else {
+                if (max !== undefined && ctr >= 3) {
+                    strRange.push([min, max].join("-"));
+                } else {
+                    strRange.push(min);
+                    if (max != undefined && max != min)
+                        strRange.push(max);
+                }
+                min = list[i];
+                max = undefined;
+                ctr = 1;
+            }
+            temp = list[i];
+        }
+        if (max !== undefined && ctr >= 3) {
+            strRange.push([min, max].join("-"));
+        } else {
+            strRange.push(min);
+            if (max != undefined && max != min)
+                strRange.push(max);
+        }
+        alert(strRange.join(","));
+    }
+
     render() {
         return (
             <div>
@@ -52,6 +82,10 @@ export class JSSolution extends Component {
                 <div>
                     <h1>Move Zeroes</h1>
                     <button onClick={() => this.moveZeros([1, 2, 0, 1, 0, 1, 0, 3, 0, 1])} > Click</button>
+                </div>
+                <div>
+                    <h1>Range Extraction</h1>
+                    <button onClick={() => this.rangeExtraction([-6, -3, -2, -1, 0, 1, 3, 4, 5, 7, 8, 9, 10, 11, 14, 15, 17, 18, 19, 20])} > Click</button>
                 </div>
             </div>
         );
