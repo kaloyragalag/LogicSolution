@@ -1,4 +1,5 @@
-﻿using LogicSolution.Model;
+﻿using LogicSolution.Data;
+using LogicSolution.Model;
 using Microsoft.IdentityModel.Tokens;
 using System;
 using System.Collections.Generic;
@@ -11,6 +12,8 @@ namespace LogicSolution.Services
 {
     public class AuthorizeService : IAuthorizeService
     {
+        private readonly DataContext _context;
+
         private List<UserModel> superAdmin = new List<UserModel>() {
             new UserModel() { UserName = "systemadmin", Password = "password" }
             , new UserModel() { UserName = "logicsolution", Password = "test1234" }
@@ -22,18 +25,18 @@ namespace LogicSolution.Services
             this.key = key;
         }
 
-        public UserModel Authenticate(UserModel userModel)
+        public User Authenticate(DataContext context, UserModel userModel)
         {
-            return superAdmin.Where(x => x.UserName == userModel.UserName && x.Password == userModel.Password).FirstOrDefault();
+            return _context.Users.Where(x => x.UserName == userModel.UserName && x.Password == userModel.Password).FirstOrDefault();
         }
 
-        public string GenerateToken(UserModel userModel)
+        public UserToken GenerateToken(User user)
         {
             var securityKey = new SymmetricSecurityKey(Encoding.ASCII.GetBytes(key));
             var credentials = new SigningCredentials(securityKey, SecurityAlgorithms.HmacSha256Signature);
             var claims = new[]
             {
-                new Claim(ClaimTypes.NameIdentifier,userModel.UserName)
+                new Claim(ClaimTypes.NameIdentifier,user.UserName)
             };
 
             var token = new JwtSecurityToken(null,
@@ -42,7 +45,7 @@ namespace LogicSolution.Services
                 expires: DateTime.Now.AddMinutes(5),
                 signingCredentials: credentials);
 
-            return new JwtSecurityTokenHandler().WriteToken(token);
+            return new UserToken() { Token = new JwtSecurityTokenHandler().WriteToken(token), Name = string.Format("{0} {1}", user.FirstName, user.LastName), Email = user.Email };
         }
 
         public static string CreateMD5(string input)

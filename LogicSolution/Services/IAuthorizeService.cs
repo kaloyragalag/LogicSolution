@@ -1,10 +1,11 @@
-﻿using LogicSolution.Model;
+﻿using LogicSolution.Data;
+using LogicSolution.Model;
 
 namespace LogicSolution.Services
 {
     public interface IAuthorizeService
     {
-        UserModel Authenticate(UserModel userModel);
-        string GenerateToken(UserModel userModel);
+        User Authenticate(DataContext context, UserModel userModel);
+        UserToken GenerateToken(User user);
     }
 }

@@ -1,7 +1,7 @@
 ﻿import React, { useState, useEffect } from 'react';
 import './Login.css';
 
-const Login = () => {
+const Login = ({ setToken }) => {
     var [username, setUsername] = useState('');
     var [password, setPassword] = useState('');
 
@@ -17,7 +17,8 @@ const Login = () => {
             body: JSON.stringify(item)
         });
         const data = await result.json();
-        localStorage.setItem("userInfo", JSON.stringify(data));
+        //localStorage.setItem("userInfo", JSON.stringify(data));
+        setToken(data.data.token);
         //history.push("/index");
     }
 
