@@ -362,7 +362,20 @@ namespace LogicSolution.Test
                 new int[] {2, 8, 7, 4, 1, 9, 6, 3, 5},
                 new int[] {3, 0, 0, 2, 8, 6, 1, 7, 9},
             }));
-        } 
+        }
+        #endregion
+
+        #region StripComments
+        [Test]
+        public void StripComments_RandomText_ReturnValid()
+        {
+            Assert.AreEqual(
+                    "apples, pears\ngrapes\nbananas",
+                    _codeWarsService.StripComments("apples, pears # and bananas\ngrapes\nbananas !apples", new string[] { "#", "!" }));
+
+            Assert.AreEqual("a\nc\nd", _codeWarsService.StripComments("a #b\nc\nd $e f g", new string[] { "#", "$" }));
+
+        }
         #endregion
     }
 }

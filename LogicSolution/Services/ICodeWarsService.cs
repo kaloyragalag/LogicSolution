@@ -22,5 +22,6 @@ namespace LogicSolution.Services
         int TicTacToeChecker(int[,] board);
         string PigLatin(string word);
         bool SudokuValidator(int[][] board);
+        string StripComments(string text, string[] commentSymbols);
     }
 }

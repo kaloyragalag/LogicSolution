@@ -235,5 +235,14 @@ namespace LogicSolution.Services
 
             return hasZero ? false : isValid;
         }
+
+        public string StripComments(string text, string[] commentSymbols)
+        {
+            foreach (string symbol in commentSymbols)
+            {
+                text = string.Join("\n", text.Split("\n").Select(x => x.IndexOf(symbol) < 0 ? x.TrimEnd() : x.Substring(0, x.IndexOf(symbol)).TrimEnd()));
+            }
+            return text;
+        }
     }
 }

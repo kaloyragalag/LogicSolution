@@ -11,4 +11,10 @@ namespace LogicSolution.Model
         public object Data { get; set; }
         public string UserMessage { get; set; } = "Success";
     }
+
+    public class StripComments
+    {
+        public string Text { get; set; }
+        public string[] CommentSymbols { get; set; }
+    }
 }

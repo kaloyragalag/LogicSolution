@@ -206,5 +206,17 @@ namespace LogicSolution.Controllers
         {
             return _codeWarsService.SudokuValidator(board);
         }
+
+        /// <summary>
+        /// This will strip all text that follows any of a set of comment markers passed in. Any whitespace at the end of the line should also be stripped out.
+        /// </summary>
+        /// <param name="text">Text to be stripped</param>
+        /// <param name="commentSymbols">List of comment symbols</param>
+        /// <returns>Text with the stripped comment symbols</returns>
+        [HttpPost("stripcomments")]
+        public string StripComments([FromBody] StripComments stripComments)
+        {
+            return _codeWarsService.StripComments(stripComments.Text, stripComments.CommentSymbols);
+        }
     }
 }
