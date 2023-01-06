@@ -17,5 +17,12 @@ module.exports = function(app) {
     }
   });
 
-  app.use(appProxy);
+    app.use(appProxy);
+
+    appProxyAuth = createProxyMiddleware("/authorization/authenticate", {
+        target: "http://localhost:34925",
+        changeOrigin: true
+    });
+
+    app.use(appProxyAuth);
 };

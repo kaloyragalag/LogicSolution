@@ -1,6 +1,7 @@
 {
   "name": "logicsolution.web",
   "version": "0.1.0",
+  "proxy": "http://localhost:34925",
   "private": true,
   "dependencies": {
     "bootstrap": "^5.1.3",
